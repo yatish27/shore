@@ -28,3 +28,5 @@ group :development do
   gem "rubocop-rails", ">= 2.22.0", require: false
   gem "web-console"
 end
+
+gem "foreman", "~> 0.88.1"
