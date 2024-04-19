@@ -27,11 +27,9 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version-file: ".node-version"
-          cache: yarn
-      - run: npx --yes ci
+          bun-version: latest
       - run: bundle exec rake db:prepare
       - run: bundle exec rake test:all
   rubocop:
@@ -52,3 +50,12 @@ jobs:
         with:
           bundler-cache: true
       - run: bundle exec brakeman --exit-on-warn --no-progress --color --output /dev/stdout
+  bundle-audit:
+    name: "Security / bundle-audit"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - run: bundle exec bundle-audit check --update -v

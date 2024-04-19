@@ -1,4 +1,4 @@
-# shore
+# Shore
 
 This is a Rails 7.1 app.
 

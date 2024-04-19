@@ -28,4 +28,6 @@ group :development do
   gem "rubocop-rails", ">= 2.22.0", require: false
   gem "web-console"
   gem "foreman", "~> 0.88.1"
+  gem "erb_lint", "~> 0.5", require: false
+  gem "bundler-audit", require: false
 end
