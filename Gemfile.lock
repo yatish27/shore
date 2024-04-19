@@ -90,6 +90,7 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    dotenv (3.1.0)
     drb (2.2.1)
     dry-cli (1.0.0)
     erubi (1.12.0)
@@ -230,6 +231,7 @@ DEPENDENCIES
   bootsnap
   brakeman
   debug
+  dotenv (>= 3.0)
   jbuilder
   pg (~> 1.1)
   puma (>= 5.0)
