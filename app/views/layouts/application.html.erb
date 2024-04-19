@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Shore</title>
+    <title><%= content_for?(:title) ? strip_tags(yield(:title)) : "Shore" %></title>
+    <meta name="apple-mobile-web-app-title" content="Shore">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

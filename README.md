@@ -1,24 +1,48 @@
-# README
+# shore
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails 7.1 app.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+This project requires:
 
-* System dependencies
+- Ruby (see [.ruby-version](./.ruby-version)), preferably managed using [rbenv](https://github.com/rbenv/rbenv)
+- PostgreSQL must be installed and accepting connections
 
-* Configuration
+On macOS, these [Homebrew](http://brew.sh) packages are recommended:
 
-* Database creation
+```
+brew install rbenv
+brew install postgresql@16
+```
 
-* Database initialization
+## Getting started
 
-* How to run the test suite
+### bin/setup
 
-* Services (job queues, cache servers, search engines, etc.)
+Run this script to install necessary dependencies and prepare the Rails app to be started for the first time.
 
-* Deployment instructions
+```
+bin/setup
+```
 
-* ...
+> [!TIP]
+> The `bin/setup` script is idempotent and is designed to be run often. You should run it every time you pull code that introduces new dependencies or makes other significant changes to the project.
+
+### Run the app!
+
+Start the Rails server with this command:
+
+```
+bin/rails s
+```
+
+The app will be located at <http://localhost:3000/>.
+
+## Development
+
+Use this command to run the full suite of automated tests:
+
+```
+bin/rake
+```
