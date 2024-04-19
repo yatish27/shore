@@ -51,7 +51,8 @@ def yarn_needed?
 end
 
 def bun_needed?
-  File.exist?("bun.lockb") && !run("bun check --check-files", silent: true, exception: false)
+  File.exist?("bun.lockb")
+end
 
 def tmp_missing?
   !Dir.exist?("tmp/pids")
