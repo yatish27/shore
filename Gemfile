@@ -31,3 +31,5 @@ group :development do
   gem "erb_lint", "~> 0.5", require: false
   gem "bundler-audit", require: false
 end
+
+gem "solid_queue", "~> 0.3.0"
