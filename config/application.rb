@@ -30,10 +30,13 @@ module Shore
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    # Use UUIDs as primary keys for all tables.
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
     end
 
     config.active_record.schema_format = :ruby
+    # Use a real queuing backend for Active Job
+    config.active_job.queue_adapter = :solid_queue
   end
 end
