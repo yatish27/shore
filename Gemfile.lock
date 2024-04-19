@@ -80,6 +80,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
+    brakeman (6.1.2)
+      racc
     builder (3.2.4)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
@@ -226,6 +228,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  brakeman
   debug
   jbuilder
   pg (~> 1.1)
