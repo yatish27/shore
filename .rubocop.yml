@@ -1,7 +1,9 @@
 # cspell:Disable
 require:
   - rubocop-rails
+  - rubocop-performance
   - rubocop-factory_bot
+  - rubocop-minitest
 
 AllCops:
   TargetRubyVersion: 3.3.0
