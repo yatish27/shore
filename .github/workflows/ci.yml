@@ -30,7 +30,7 @@ jobs:
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-      - run: bundle exec rake db:prepare
+      - run: bundle exec rake db:migrate
       - run: bundle exec rake test:all
   rubocop:
     name: "Lint / rubocop"
