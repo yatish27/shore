@@ -6,3 +6,33 @@
   - Default foreground, background, and link colors.
   - Global CSS variables (declared on :root), such as color palette.
 */
+
+@font-face {
+  font-family: "Geist";
+  src: url("@assets/fonts/geist/GeistVariableVF.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DMSans";
+  src: url("@assets/fonts/dm_sans/DMSansVF.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "FiraCode";
+  src: url("@assets/fonts/fira_code/FiraCodeVF.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+
+@layer base {
+  :root {
+    --font-sans: DMSans;
+    --font-mono: FiraCode;
+  }
+}
