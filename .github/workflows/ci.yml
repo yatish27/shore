@@ -1,0 +1,54 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+env:
+  RAILS_ENV: test
+jobs:
+  test:
+    name: "Test"
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/ci
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: ci
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".node-version"
+          cache: yarn
+      - run: npx --yes ci
+      - run: bundle exec rake db:prepare
+      - run: bundle exec rake test:all
+  rubocop:
+    name: "Lint / rubocop"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - run: bin/rubocop
+  brakeman:
+    name: "Security / brakeman"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - run: bundle exec brakeman --exit-on-warn --no-progress --color --output /dev/stdout
