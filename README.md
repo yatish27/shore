@@ -38,7 +38,7 @@ bin/setup
 Start the Rails server with this command:
 
 ```
-bin/rails s
+yarn start
 ```
 
 The app will be located at <http://localhost:3000/>.

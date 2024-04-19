@@ -19,7 +19,7 @@ def setup!
   end
 
   say_status :Ready!,
-    "Use #{colorize("bin/rails s", :yellow)} to start the app, " \
+    "Use #{colorize("yarn start", :yellow)} to start the app, " \
     "or #{colorize("bin/rake", :yellow)} to run tests"
 end
 
