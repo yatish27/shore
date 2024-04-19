@@ -7,12 +7,16 @@ This is a Rails 7.1 app.
 This project requires:
 
 - Ruby (see [.ruby-version](./.ruby-version)), preferably managed using [rbenv](https://github.com/rbenv/rbenv)
+- Node 18 (LTS) or newer
+- Yarn 1.x (classic)
 - PostgreSQL must be installed and accepting connections
 
 On macOS, these [Homebrew](http://brew.sh) packages are recommended:
 
 ```
 brew install rbenv
+brew install node
+brew install yarn
 brew install postgresql@16
 ```
 
