@@ -8,7 +8,7 @@ def setup!
   run "bundle install" if bundle_needed?
   run "overcommit --install" if overcommit_installable?
   run "bin/rails db:prepare" if database_present?
-  run "yarn install" if yarn_needed?
+  run "bun install" if bun_needed?
   run "bin/rails tmp:create" if tmp_missing?
   run "bin/rails restart"
 
@@ -19,8 +19,7 @@ def setup!
   end
 
   say_status :Ready!,
-    "Use #{colorize("yarn start", :yellow)} to start the app, " \
-    "or #{colorize("bin/rake", :yellow)} to run tests"
+    "#{colorize("bin/rake", :yellow)} to run tests"
 end
 
 def run(command, echo: true, silent: false, exception: true)
@@ -50,6 +49,9 @@ end
 def yarn_needed?
   File.exist?("yarn.lock") && !run("yarn check --check-files", silent: true, exception: false)
 end
+
+def bun_needed?
+  File.exist?("bun.lockb") && !run("bun check --check-files", silent: true, exception: false)
 
 def tmp_missing?
   !Dir.exist?("tmp/pids")
