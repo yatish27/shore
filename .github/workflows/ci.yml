@@ -27,9 +27,14 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - uses: oven-sh/setup-bun@v1
+      - run: corepack enable    
+      - name: Install Yarn conditionally
+        run: npm install yarn
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          bun-version: latest
+          node-version: "18.12.1"
+          cache-dependency-path: yarn.lock
       - run: bundle exec rake db:migrate
       - run: bundle exec rake test:all
   rubocop:
