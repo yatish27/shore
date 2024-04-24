@@ -28,10 +28,7 @@ jobs:
         with:
           bundler-cache: true
       - name: Install Yarn conditionally
-        run: |
-          if ! command -v yarn &> /dev/null; then
-            corepack enable && npm install yarn
-          fi
+        run: corepack enable && npm install yarn
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
