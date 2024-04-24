@@ -35,7 +35,6 @@ jobs:
         with:
           node-version: "18.12.1"
           cache-dependency-path: yarn.lock
-          cache: "yarn"
       - run: bundle exec rake db:migrate
       - run: bundle exec rake test:all
   rubocop:
