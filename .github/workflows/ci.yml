@@ -27,14 +27,14 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Install Yarn conditionally
+        run: npm install yarn
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: "18.12.1"
           cache-dependency-path: yarn.lock
           cache: "yarn"
-      - name: Install Yarn conditionally
-        run: corepack enable && npm install yarn    
       - run: bundle exec rake db:migrate
       - run: bundle exec rake test:all
   rubocop:
