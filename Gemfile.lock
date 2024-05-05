@@ -104,7 +104,7 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
-    dotenv (3.1.0)
+    dotenv (3.1.1)
     drb (2.2.1)
     dry-cli (1.0.0)
     erb_lint (0.5.0)
@@ -130,15 +130,15 @@ GEM
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
-    irb (1.12.0)
-      rdoc
+    irb (1.13.1)
+      rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    jbuilder (2.11.5)
+    jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.7.2)
     language_server-protocol (3.17.0.3)
-    launchy (3.0.0)
+    launchy (3.0.1)
       addressable (~> 2.8)
       childprocess (~> 5.0)
     letter_opener (1.10.0)
@@ -153,7 +153,6 @@ GEM
       net-smtp
     marcel (1.0.4)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.6)
     minitest (5.22.3)
     msgpack (1.7.2)
     mutex_m (0.2.0)
@@ -167,9 +166,6 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.1)
-    nokogiri (1.16.4)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
     nokogiri (1.16.4-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.16.4-arm-linux)
@@ -189,7 +185,7 @@ GEM
     overmind (2.5.1-x86-linux)
     overmind (2.5.1-x86_64-darwin)
     parallel (1.24.0)
-    parser (3.3.0.5)
+    parser (3.3.1.0)
       ast (~> 2.4.1)
       racc
     pg (1.5.6)
@@ -244,10 +240,10 @@ GEM
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
     regexp_parser (2.9.0)
-    reline (0.5.3)
+    reline (0.5.5)
       io-console (~> 0.5)
     rexml (3.2.6)
-    rubocop (1.63.3)
+    rubocop (1.63.4)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -258,8 +254,8 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.31.2)
-      parser (>= 3.3.0.4)
+    rubocop-ast (1.31.3)
+      parser (>= 3.3.1.0)
     rubocop-factory_bot (2.25.1)
       rubocop (~> 1.41)
     rubocop-minitest (0.35.0)
@@ -316,7 +312,6 @@ PLATFORMS
   arm-linux
   arm64-darwin
   arm64-linux
-  ruby
   x86-linux
   x86_64-darwin
   x86_64-linux
@@ -348,7 +343,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.3.0p0
+   ruby 3.3.1p55
 
 BUNDLED WITH
    2.5.9
