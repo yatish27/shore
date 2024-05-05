@@ -53,8 +53,8 @@ CREATE TABLE public.schema_migrations (
 --
 
 CREATE TABLE public.solid_queue_blocked_executions (
-    id bigint NOT NULL,
-    job_id bigint NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    job_id uuid NOT NULL,
     queue_name character varying NOT NULL,
     priority integer DEFAULT 0 NOT NULL,
     concurrency_key character varying NOT NULL,
@@ -64,53 +64,15 @@ CREATE TABLE public.solid_queue_blocked_executions (
 
 
 --
--- Name: solid_queue_blocked_executions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.solid_queue_blocked_executions_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: solid_queue_blocked_executions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.solid_queue_blocked_executions_id_seq OWNED BY public.solid_queue_blocked_executions.id;
-
-
---
 -- Name: solid_queue_claimed_executions; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.solid_queue_claimed_executions (
-    id bigint NOT NULL,
-    job_id bigint NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    job_id uuid NOT NULL,
     process_id bigint,
     created_at timestamp(6) without time zone NOT NULL
 );
-
-
---
--- Name: solid_queue_claimed_executions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.solid_queue_claimed_executions_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: solid_queue_claimed_executions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.solid_queue_claimed_executions_id_seq OWNED BY public.solid_queue_claimed_executions.id;
 
 
 --
@@ -118,30 +80,11 @@ ALTER SEQUENCE public.solid_queue_claimed_executions_id_seq OWNED BY public.soli
 --
 
 CREATE TABLE public.solid_queue_failed_executions (
-    id bigint NOT NULL,
-    job_id bigint NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    job_id uuid NOT NULL,
     error text,
     created_at timestamp(6) without time zone NOT NULL
 );
-
-
---
--- Name: solid_queue_failed_executions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.solid_queue_failed_executions_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: solid_queue_failed_executions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.solid_queue_failed_executions_id_seq OWNED BY public.solid_queue_failed_executions.id;
 
 
 --
@@ -149,7 +92,7 @@ ALTER SEQUENCE public.solid_queue_failed_executions_id_seq OWNED BY public.solid
 --
 
 CREATE TABLE public.solid_queue_jobs (
-    id bigint NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
     queue_name character varying NOT NULL,
     class_name character varying NOT NULL,
     arguments text,
@@ -164,52 +107,14 @@ CREATE TABLE public.solid_queue_jobs (
 
 
 --
--- Name: solid_queue_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.solid_queue_jobs_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: solid_queue_jobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.solid_queue_jobs_id_seq OWNED BY public.solid_queue_jobs.id;
-
-
---
 -- Name: solid_queue_pauses; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.solid_queue_pauses (
-    id bigint NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
     queue_name character varying NOT NULL,
     created_at timestamp(6) without time zone NOT NULL
 );
-
-
---
--- Name: solid_queue_pauses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.solid_queue_pauses_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: solid_queue_pauses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.solid_queue_pauses_id_seq OWNED BY public.solid_queue_pauses.id;
 
 
 --
@@ -217,7 +122,7 @@ ALTER SEQUENCE public.solid_queue_pauses_id_seq OWNED BY public.solid_queue_paus
 --
 
 CREATE TABLE public.solid_queue_processes (
-    id bigint NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
     kind character varying NOT NULL,
     last_heartbeat_at timestamp(6) without time zone NOT NULL,
     supervisor_id bigint,
@@ -229,31 +134,12 @@ CREATE TABLE public.solid_queue_processes (
 
 
 --
--- Name: solid_queue_processes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.solid_queue_processes_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: solid_queue_processes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.solid_queue_processes_id_seq OWNED BY public.solid_queue_processes.id;
-
-
---
 -- Name: solid_queue_ready_executions; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.solid_queue_ready_executions (
-    id bigint NOT NULL,
-    job_id bigint NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    job_id uuid NOT NULL,
     queue_name character varying NOT NULL,
     priority integer DEFAULT 0 NOT NULL,
     created_at timestamp(6) without time zone NOT NULL
@@ -261,31 +147,12 @@ CREATE TABLE public.solid_queue_ready_executions (
 
 
 --
--- Name: solid_queue_ready_executions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.solid_queue_ready_executions_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: solid_queue_ready_executions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.solid_queue_ready_executions_id_seq OWNED BY public.solid_queue_ready_executions.id;
-
-
---
 -- Name: solid_queue_recurring_executions; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.solid_queue_recurring_executions (
-    id bigint NOT NULL,
-    job_id bigint NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    job_id uuid NOT NULL,
     task_key character varying NOT NULL,
     run_at timestamp(6) without time zone NOT NULL,
     created_at timestamp(6) without time zone NOT NULL
@@ -293,31 +160,12 @@ CREATE TABLE public.solid_queue_recurring_executions (
 
 
 --
--- Name: solid_queue_recurring_executions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.solid_queue_recurring_executions_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: solid_queue_recurring_executions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.solid_queue_recurring_executions_id_seq OWNED BY public.solid_queue_recurring_executions.id;
-
-
---
 -- Name: solid_queue_scheduled_executions; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.solid_queue_scheduled_executions (
-    id bigint NOT NULL,
-    job_id bigint NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    job_id uuid NOT NULL,
     queue_name character varying NOT NULL,
     priority integer DEFAULT 0 NOT NULL,
     scheduled_at timestamp(6) without time zone NOT NULL,
@@ -326,125 +174,17 @@ CREATE TABLE public.solid_queue_scheduled_executions (
 
 
 --
--- Name: solid_queue_scheduled_executions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.solid_queue_scheduled_executions_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: solid_queue_scheduled_executions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.solid_queue_scheduled_executions_id_seq OWNED BY public.solid_queue_scheduled_executions.id;
-
-
---
 -- Name: solid_queue_semaphores; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.solid_queue_semaphores (
-    id bigint NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
     key character varying NOT NULL,
     value integer DEFAULT 1 NOT NULL,
     expires_at timestamp(6) without time zone NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 );
-
-
---
--- Name: solid_queue_semaphores_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.solid_queue_semaphores_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: solid_queue_semaphores_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.solid_queue_semaphores_id_seq OWNED BY public.solid_queue_semaphores.id;
-
-
---
--- Name: solid_queue_blocked_executions id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.solid_queue_blocked_executions ALTER COLUMN id SET DEFAULT nextval('public.solid_queue_blocked_executions_id_seq'::regclass);
-
-
---
--- Name: solid_queue_claimed_executions id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.solid_queue_claimed_executions ALTER COLUMN id SET DEFAULT nextval('public.solid_queue_claimed_executions_id_seq'::regclass);
-
-
---
--- Name: solid_queue_failed_executions id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.solid_queue_failed_executions ALTER COLUMN id SET DEFAULT nextval('public.solid_queue_failed_executions_id_seq'::regclass);
-
-
---
--- Name: solid_queue_jobs id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.solid_queue_jobs ALTER COLUMN id SET DEFAULT nextval('public.solid_queue_jobs_id_seq'::regclass);
-
-
---
--- Name: solid_queue_pauses id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.solid_queue_pauses ALTER COLUMN id SET DEFAULT nextval('public.solid_queue_pauses_id_seq'::regclass);
-
-
---
--- Name: solid_queue_processes id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.solid_queue_processes ALTER COLUMN id SET DEFAULT nextval('public.solid_queue_processes_id_seq'::regclass);
-
-
---
--- Name: solid_queue_ready_executions id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.solid_queue_ready_executions ALTER COLUMN id SET DEFAULT nextval('public.solid_queue_ready_executions_id_seq'::regclass);
-
-
---
--- Name: solid_queue_recurring_executions id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.solid_queue_recurring_executions ALTER COLUMN id SET DEFAULT nextval('public.solid_queue_recurring_executions_id_seq'::regclass);
-
-
---
--- Name: solid_queue_scheduled_executions id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.solid_queue_scheduled_executions ALTER COLUMN id SET DEFAULT nextval('public.solid_queue_scheduled_executions_id_seq'::regclass);
-
-
---
--- Name: solid_queue_semaphores id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.solid_queue_semaphores ALTER COLUMN id SET DEFAULT nextval('public.solid_queue_semaphores_id_seq'::regclass);
 
 
 --
