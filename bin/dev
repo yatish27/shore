@@ -1,11 +1,9 @@
 #!/usr/bin/env sh
 
-if ! gem list overmind -i --silent; then
-  echo "Installing overmind..."
-  gem install overmind
+if ! gem list foreman -i --silent; then
+  echo "Installing foreman..."
+  gem install foreman
 fi
 
-# Default to port 3000 if not specified
-export PORT="${PORT:-3000}"
+foreman start -f Procfile.dev "$@"
 
-exec overmind start -f Procfile.dev "$@"
