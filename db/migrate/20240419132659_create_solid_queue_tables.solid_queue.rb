@@ -1,7 +1,7 @@
 # This migration comes from solid_queue (originally 20231211200639)
 class CreateSolidQueueTables < ActiveRecord::Migration[7.0]
   def change
-    create_table :solid_queue_jobs do |t|
+    create_table :solid_queue_jobs, id: :uuid do |t|
       t.string :queue_name, null: false
       t.string :class_name, null: false, index: true
       t.text :arguments
@@ -17,8 +17,8 @@ class CreateSolidQueueTables < ActiveRecord::Migration[7.0]
       t.index [:scheduled_at, :finished_at], name: "index_solid_queue_jobs_for_alerting"
     end
 
-    create_table :solid_queue_scheduled_executions do |t|
-      t.references :job, index: {unique: true}, null: false
+    create_table :solid_queue_scheduled_executions, id: :uuid do |t|
+      t.references :job, type: :uuid, index: {unique: true}, null: false
       t.string :queue_name, null: false
       t.integer :priority, default: 0, null: false
       t.datetime :scheduled_at, null: false
@@ -28,8 +28,8 @@ class CreateSolidQueueTables < ActiveRecord::Migration[7.0]
       t.index [:scheduled_at, :priority, :job_id], name: "index_solid_queue_dispatch_all"
     end
 
-    create_table :solid_queue_ready_executions do |t|
-      t.references :job, index: {unique: true}, null: false
+    create_table :solid_queue_ready_executions, id: :uuid do |t|
+      t.references :job, type: :uuid, index: {unique: true}, null: false
       t.string :queue_name, null: false
       t.integer :priority, default: 0, null: false
 
@@ -39,16 +39,16 @@ class CreateSolidQueueTables < ActiveRecord::Migration[7.0]
       t.index [:queue_name, :priority, :job_id], name: "index_solid_queue_poll_by_queue"
     end
 
-    create_table :solid_queue_claimed_executions do |t|
-      t.references :job, index: {unique: true}, null: false
+    create_table :solid_queue_claimed_executions, id: :uuid do |t|
+      t.references :job, type: :uuid, index: {unique: true}, null: false
       t.bigint :process_id
       t.datetime :created_at, null: false
 
       t.index [:process_id, :job_id]
     end
 
-    create_table :solid_queue_blocked_executions do |t|
-      t.references :job, index: {unique: true}, null: false
+    create_table :solid_queue_blocked_executions, id: :uuid do |t|
+      t.references :job, type: :uuid, index: {unique: true}, null: false
       t.string :queue_name, null: false
       t.integer :priority, default: 0, null: false
       t.string :concurrency_key, null: false
@@ -59,18 +59,18 @@ class CreateSolidQueueTables < ActiveRecord::Migration[7.0]
       t.index [:expires_at, :concurrency_key], name: "index_solid_queue_blocked_executions_for_maintenance"
     end
 
-    create_table :solid_queue_failed_executions do |t|
-      t.references :job, index: {unique: true}, null: false
+    create_table :solid_queue_failed_executions, id: :uuid do |t|
+      t.references :job, type: :uuid, index: {unique: true}, null: false
       t.text :error
       t.datetime :created_at, null: false
     end
 
-    create_table :solid_queue_pauses do |t|
+    create_table :solid_queue_pauses, id: :uuid do |t|
       t.string :queue_name, null: false, index: {unique: true}
       t.datetime :created_at, null: false
     end
 
-    create_table :solid_queue_processes do |t|
+    create_table :solid_queue_processes, id: :uuid do |t|
       t.string :kind, null: false
       t.datetime :last_heartbeat_at, null: false, index: true
       t.bigint :supervisor_id, index: true
@@ -82,7 +82,7 @@ class CreateSolidQueueTables < ActiveRecord::Migration[7.0]
       t.datetime :created_at, null: false
     end
 
-    create_table :solid_queue_semaphores do |t|
+    create_table :solid_queue_semaphores, id: :uuid do |t|
       t.string :key, null: false, index: {unique: true}
       t.integer :value, default: 1, null: false
       t.datetime :expires_at, null: false, index: true
