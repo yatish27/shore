@@ -1,6 +1,37 @@
+![shore_logo_128](https://github.com/yatish27/shore/assets/1014383/fbad8ed2-9510-4693-a342-4bafa515b164)
+
 # Shore
 
-This is a Rails 7.1 app.
+A cutting-edge and opinionated Ruby on Rails template equipped with pragmatic defaults to kickstart your next project 🚀
+
+
+
+![example workflow](https://github.com/yatish27/shore/actions/workflows/ci.yml/badge.svg)
+
+This template serves as a robust foundation, providing all the necessary setups and defaults required for launching a new Ruby on Rails application swiftly.
+
+
+## Features 🌟
+- **Ruby & Rails**: Ruby 3.3.1 with Rails 7.1.2
+- **Styling**: TailwindCSS
+- **Asset managment**: [ViteRuby](https://github.com/ElMassimo/vite_ruby)
+- **Front-end Libraries**: Hotwire, Turbo & StimulusJS 
+- **Views**: [Phlex](https://www.phlex.fun)
+- **Package Management**: [Bun](https://bun.sh). It replaces Node and Yarn.
+- **Testing Suite**:
+  - Minitest for unit and functional integration tests
+  - FactoryBot for setting up test data
+  - cypress-rails for end-to-end system tests
+- **Background Processing**: SolidQueue 
+- **Linting and formatting**: Rubocop
+- **Containerization**:
+  - Docker support with separate Dockerfiles and docker-compose.yml for development, test, and production environments
+- **Continuous Integration**: Automated workflows with GitHub Actions
+- **Deployment Options**:
+  - Heroku
+  - Render
+  - Hatchbox.io
+  - DigitalOcean with Kamal
 
 ## Prerequisites
 
