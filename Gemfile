@@ -7,20 +7,24 @@ gem "jbuilder"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
+gem "solid_queue", "~> 0.3.0"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[windows jruby]
 gem "vite_rails", "~> 3.0"
-gem "solid_queue", "~> 0.3.0"
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows]
   gem "dotenv", ">= 3.0"
   gem "factory_bot_rails"
+  gem "rubocop-rails-omakase", require: false, group: [ :development ]
 end
 
 group :development do
   gem "brakeman", require: false
+  gem "bundler-audit", require: false
+  gem "erb_lint", "~> 0.5", require: false
+  gem "foreman", "~> 0.88"
   gem "letter_opener"
   gem "rubocop", require: false
   gem "rubocop-factory_bot", require: false
@@ -28,7 +32,4 @@ group :development do
   gem "rubocop-performance", require: false
   gem "rubocop-rails", ">= 2.22.0", require: false
   gem "web-console"
-  gem "foreman", "~> 0.88"
-  gem "erb_lint", "~> 0.5", require: false
-  gem "bundler-audit", require: false
 end

@@ -1,7 +1,5 @@
 class HelloWorldJob < ApplicationJob
   def perform(name:)
-    greeting = "Hello, World!, #{name}"
-    puts greeting
-    greeting
+    "Hello, World!, #{name}"
   end
 end
