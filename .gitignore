@@ -43,6 +43,7 @@ $RECYCLE.BIN/
 !/.env*.erb
 !/.env.sample
 /config/master.key
+/config/credentials/*.key
 *.local
 
 # Build & Dependency Folders
