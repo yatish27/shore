@@ -2,17 +2,17 @@
 
 # Shore
 
-A cutting-edge and opinionated Ruby on Rails template equipped with pragmatic defaults to kickstart your next project 🚀
+A modern Ruby on Rails template equipped with opinionated defaults to start your next project 🚀
 
 
 
 ![example workflow](https://github.com/yatish27/shore/actions/workflows/ci.yml/badge.svg)
 
-This template serves as a robust foundation, providing all the necessary setups and defaults required for launching a new Ruby on Rails application swiftly.
+This serves as a base application, providing all the necessary setups and defaults required for launching a new Ruby on Rails application quickly.
 
 
 ## Features 🌟
-- **Ruby & Rails**: Ruby 3.3.1 with Rails 7.1.2
+- **Ruby & Rails**: Ruby 3.3.1 with Rails 7.1.3
 - **Styling**: TailwindCSS
 - **Asset managment**: [ViteRuby](https://github.com/ElMassimo/vite_ruby)
 - **Front-end Libraries**: Hotwire, Turbo & StimulusJS 
