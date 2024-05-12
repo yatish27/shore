@@ -6,8 +6,8 @@ A modern Ruby on Rails template equipped with opinionated defaults to start your
 
 ![example workflow](https://github.com/yatish27/shore/actions/workflows/ci.yml/badge.svg)
 
-This serves as a base application, providing all the necessary setups and defaults required for launching a new Ruby on Rails application quickly.
-
+This serves as a base application, providing all the necessary setups 
+and defaults required to launch your Rails project.
 
 ## Features 🌟
 - **Ruby & Rails**: Ruby 3.3.1 with Rails 7.1.3
@@ -20,12 +20,12 @@ This serves as a base application, providing all the necessary setups and defaul
   - Minitest for unit and functional integration tests
   - FactoryBot for setting up test data
   - cypress-rails for end-to-end system tests
-- **Background Processing**: SolidQueue 
+- **Background Jobs**: SolidQueue 
 - **Linting and formatting**: Rubocop
 - **Containerization**:
-  - Docker compose for development and testing.
-  - Dockerfile for production
-- **Continuous Integration**: Automated workflows with GitHub Actions
+  - Support for docker compose for development and testing.
+  - Dockerfile
+- **Continuous Integration(CI)**: GitHub Actions
 - **Deployment Options**:
   - Heroku
   - Render
