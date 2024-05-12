@@ -1,4 +1,3 @@
-import "~/stylesheets/index.css";
 import "~/controllers";
 import "@hotwired/turbo-rails";
 // To see this message, add the following to the `<head>` section in your
@@ -18,8 +17,12 @@ console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify
 
 // Example: Load Rails libraries in Vite.
 //
-// import * as Turbo from '@hotwired/turbo'
-// Turbo.start()
+
+Turbo.start();
+
+document.addEventListener("turbo:load", function () {
+  console.log("turbo:load");
+});
 //
 // import ActiveStorage from '@rails/activestorage'
 // ActiveStorage.start()
