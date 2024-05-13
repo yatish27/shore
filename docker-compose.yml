@@ -1,0 +1,58 @@
+volumes:
+  dbdata:
+    driver: local
+services:
+  db:
+    image: postgres:16.3
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - dbdata:/var/lib/postgresql/data/pgdata
+  web:
+    build: . 
+    tty: true
+    ports:
+      - "3000:3000"
+    environment:
+      - RAILS_ENV=development
+      - RACK_ENV=development
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - RAILS_SERVE_STATIC_FILES=false
+      - VITE_RUBY_HOST=vite
+    # volumes:
+    #   - .:/app
+    depends_on:
+      - db
+    command: bundle exec rails s -b 0.0.0.0 -p 3000
+  worker:
+    build: .
+    environment:
+      - RAILS_ENV=development
+      - RACK_ENV=development
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - RAILS_SERVE_STATIC_FILES=false
+    # volumes:
+    #   - .:/app
+    depends_on:
+      - db
+    command: bundle exec rake solid_queue:start
+  vite:
+    build: . 
+    environment:
+      - RAILS_ENV=development
+      - RACK_ENV=development
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - RAILS_SERVE_STATIC_FILES=false
+      - VITE_RUBY_HOST=0.0.0.0
+    ports:
+      - "3036:3036"  
+    volumes:
+      - ./app/frontend:/app/app/frontend
+    depends_on:
+      - db
+    command: bundle exec vite dev  

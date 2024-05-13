@@ -1,28 +1,17 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: <%= ENV['POSTGRES_HOST'] %>
-  pool: 5
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+  username: <%= ENV.fetch('POSTGRES_USER') { 'postgres' } %>
+  password: <%= ENV.fetch('POSTGRES_PASSWORD') { 'password' } %>
+  host: <%= ENV.fetch('POSTGRES_HOST') { 'db' } %>
   timeout: 5000
-
 development:
   <<: *default
-  database: "shore_development"
-
+  database: shore_development
 test:
   <<: *default
-  database: "shore_test"
-
-heroku:
-  <<: *default
-  database: "shore_heroku"
-
-staging:
-  <<: *default
-  database: "shore_staging"
-
+  database: shore_test
 production:
   <<: *default
-  database: "shore_production"
+  database: shore_production
