@@ -1,110 +1,73 @@
 #!/usr/bin/env ruby
 
-# This script is a way to set up or update your development environment automatically.
-# This script is idempotent, so that you can run it at any time and get an expectable outcome.
-# Add necessary setup steps to this method.
-def setup!
-  env ".env", from: ".env.sample"
-  run "bundle install" if bundle_needed?
-  run "overcommit --install" if overcommit_installable?
-  run "bin/rails db:prepare" if database_present?
-  run "bun install" if bun_needed?
-  run "bin/rails tmp:create" if tmp_missing?
-  run "bin/rails restart"
+require 'bundler/inline'
 
-  if git_safe_needed?
-    say_status :notice,
-      "Remember to run #{colorize("mkdir -p .git/safe", :yellow)} to trust the binstubs in this project",
-      :magenta
+gemfile do
+  source 'https://rubygems.org'
+  require 'fileutils'
+  require 'colorize'
+end
+
+# path to your application root.
+APP_ROOT = File.expand_path("..", __dir__)
+
+# Execute a shell command and raise an error if it fails.
+def system!(*args)
+  system(*args) || abort("\n== Command #{args} failed ==")
+end
+
+# Check if a command exists
+def command?(name)
+  [name,
+   *ENV['PATH'].split(File::PATH_SEPARATOR).map {|p| File.join(p, name)}
+  ].find {|f| File.executable?(f)}
+end
+
+FileUtils.chdir APP_ROOT do
+  # This script is a way to set up or update your development environment automatically.
+  # This script is idempotent, so that you can run it at any time and get an expectable outcome.
+  # Add necessary setup steps to this file.
+  
+  unless File.exist?(".env")
+    puts "\n== Copying env.sample files =="
+    FileUtils.cp ".env.sample", ".env"
+    puts "Copied .env.sample to .env".green
   end
 
-  say_status :Ready!,
-    "#{colorize("bin/rake", :yellow)} to run tests"
-end
+  puts "\n== Installing gems =="
+  system! "gem install bundler --conservative"
+  system("bundle check") || system!("bundle install")
+  puts "Gems installed".green
 
-def run(command, echo: true, silent: false, exception: true)
-  say_status(:run, command, :blue) if echo
-  with_original_bundler_env do
-    options = silent ? {out: File::NULL, err: File::NULL} : {}
-    system(command, exception:, **options)
-  end
-end
-
-def run?(command)
-  run command, silent: true, echo: false, exception: false
-end
-
-def bundle_needed?
-  !run("bundle check", silent: true, exception: false)
-end
-
-def overcommit_installable?
-  File.exist?(".overcommit.yml") && !File.exist?(".git/hooks/overcommit-hook") && run?("overcommit -v")
-end
-
-def database_present?
-  File.exist?("config/database.yml")
-end
-
-def yarn_needed?
-  File.exist?("yarn.lock") && !run("yarn check --check-files", silent: true, exception: false)
-end
-
-def bun_needed?
-  File.exist?("bun.lockb")
-end
-
-def tmp_missing?
-  !Dir.exist?("tmp/pids")
-end
-
-def git_safe_needed?
-  ENV["PATH"].include?(".git/safe/../../bin") && !Dir.exist?(".git/safe")
-end
-
-def with_original_bundler_env(&)
-  return yield unless defined?(Bundler)
-
-  Bundler.with_original_env(&)
-end
-
-def env(env_file, from:)
-  return unless File.exist?(from)
-
-  unless File.exist?(env_file)
-    say_status(:copy, "#{from} → #{env_file}", :magenta)
-    require "fileutils"
-    FileUtils.cp(from, env_file)
-  end
-
-  keys = ->(f) { File.readlines(f).filter_map { |l| l[/^([^#\s][^=\s]*)/, 1] } }
-
-  missing = keys[from] - keys[env_file]
-  return if missing.empty?
-
-  say_status(:WARNING, "Your #{env_file} file is missing #{missing.join(", ")}. Refer to #{from} for details.", :red)
-end
-
-def say_status(label, message, color = :green)
-  label = label.to_s.rjust(12)
-  puts [colorize(label, color), message.gsub(/^/, " " * 13).strip].join(" ")
-end
-
-def colorize(str, color)
-  return str unless color_supported?
-
-  code = {red: 31, green: 32, yellow: 33, blue: 34, magenta: 35}.fetch(color)
-  "\e[0;#{code};49m#{str}\e[0m"
-end
-
-def color_supported?
-  if ENV["TERM"] == "dumb" || !ENV["NO_COLOR"].to_s.empty?
-    false
+  puts "\n== Installing packages using Bun =="
+  if command?("bun")
+    system!("bun install")
+    puts "Packages installed".green
   else
-    [$stdout, $stderr].all? { |io| io.respond_to?(:tty?) && io.tty? }
+    puts "Bun is not installed. Install bun using `brew install oven-sh/bun/bun`".red
+    puts "Visit https://bun.sh/docs/installation for more information.".red
+    exit 1
   end
-end
 
-Dir.chdir(File.expand_path("..", __dir__)) do
-  setup!
+  puts "\n== Preparing database =="
+  if File.exist?("config/database.yml")
+    system! "bin/rails db:prepare"
+    puts "Database setup complete".green
+  else
+    puts "config/database.yml not found".red
+    exit 1
+  end
+
+  if !Dir.exist?("tmp/pids")
+    puts "\n== Creating tmp/pids directory =="
+    system!("bin/rails tmp:create")
+    puts "tmp/pids directory created".green
+  end
+ 
+  puts "\n== Removing old logs and tempfiles =="
+  system! "bin/rails log:clear tmp:clear"
+  puts "Old logs and tempfiles removed".green
+
+  puts ""
+  puts "You're set! Now you can run bin/dev to boot your server and access your application.".green
 end
