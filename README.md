@@ -7,7 +7,7 @@
 ## Introduction
 
 
-## 🌟 Features
+## Features ⚡️
 
 - **Ruby**: Ruby 3.3.1 
 - **Rails**: [Rails 7.1](https://rubyonrails.org)
@@ -15,15 +15,16 @@
 - **Tailwind CSS**: Uses [Tailwind CSS](https://tailwindcss.com) for styling.
 - **Vite Ruby**: Uses [Vite Ruby](https://vite-ruby.netlify.app) for asset management. It is based on [Vite.js](https://vitejs.dev). It replaces webpacker, jsbundling-rails, cssbundling-rails, importmaps and sprockets.
 - **Bun**: Uses [Bun](https://bun.sh) for npm package manager. No need to install node and yarn.
--**Phlex**: Uses [Phlex](https://www.phlex.fun) for component-based views. It is an alternative to [ViewComponent](https://viewcomponent.org).
-- **Minitest/FactoryBot**: Uses Rails' default testing library, minitest along with [Factorybot](https://github.com/thoughtbot/factory_bot)
+- **Phlex**: Uses [Phlex](https://www.phlex.fun) for component-based views. It is an alternative to [ViewComponent](https://viewcomponent.org).
+- **Solid Queue**: Uses [Solid Queue](https://github.com/rails/solid_queue) for background processing.
+- **Minitest/FactoryBot**: Uses Rails' default testing library, minitest along with [Factorybot](https://github.com/thoughtbot/factory_bot).
 - **Rubocop**: Auto-formats Ruby code with [rubocop](https://rubocop.org).
 - **Prettier**: Auto-formats JavaScript and CSS code with [prettier](https://prettier.io).
 - **Github Actions**: Uses Github Actions for continuous integration and deployment.
 - **Deployment**: Supports deployment at [Heroku](https://www.heroku.com/platform) and [Render](https://render.com)
 
 
-## Usage
+## Getting Started 💻
 
 ### Prerequisites
 - Ruby 3.3.1
