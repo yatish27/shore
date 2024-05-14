@@ -18,6 +18,7 @@ group :development, :test do
   gem "dotenv", ">= 3.0"
   gem "factory_bot_rails"
   gem "rubocop-rails-omakase", require: false, group: [ :development ]
+  gem "minitest-reporters"
 end
 
 group :development do
@@ -25,6 +26,7 @@ group :development do
   gem "bundler-audit", require: false
   gem "erb_lint", "~> 0.5", require: false
   gem "foreman", "~> 0.88"
+  gem "colorize"
   gem "letter_opener"
   gem "rubocop", require: false
   gem "rubocop-factory_bot", require: false

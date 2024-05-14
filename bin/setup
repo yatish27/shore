@@ -1,12 +1,16 @@
 #!/usr/bin/env ruby
 
-require 'bundler/inline'
+require "bundler/inline"
+require "fileutils"
 
-gemfile do
-  source 'https://rubygems.org'
-  require 'fileutils'
-  require 'colorize'
+begin
+  Gem::Specification.find_by_name("colorize")
+rescue LoadError => e
+  puts "Installing colorize gem"
+  system("gem install colorize")
 end
+
+require "colorize"
 
 # path to your application root.
 APP_ROOT = File.expand_path("..", __dir__)
@@ -69,5 +73,8 @@ FileUtils.chdir APP_ROOT do
   puts "Old logs and tempfiles removed".green
 
   puts ""
-  puts "You're set! Now you can run bin/dev to boot your server and access your application.".green
+  puts "You're set!! 🎉🎉🎉".green
+  puts ""
+  puts "  #{"bin/dev".yellow} to start the server, visit http://localhost:3000"
+  puts "  #{"bin/rake".yellow} to run tests"
 end
