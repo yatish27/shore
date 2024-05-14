@@ -12,7 +12,7 @@
 - Ruby (3.3.1) and Rails (7.1)
 - [PostgresSQL 16.3](https://www.postgresql.org)
 - [Tailwind CSS](https://tailwindcss.com)
-- Uses [Vite Ruby](https://vite-ruby.netlify.app) for asset management. It is based on Vite.js. It replaces webpacker, jsbundling-rails, cssbundling-rails, importmaps and sprockets.
+- Uses [Vite Ruby](https://vite-ruby.netlify.app) for asset management. It is based on [Vite.js](https://vitejs.dev). It replaces webpacker, jsbundling-rails, cssbundling-rails, importmaps and sprockets.
 - Uses [Bun](https://bun.sh) for npm package manager. No need to install node and yarn.
 - Uses [Phlex](https://www.phlex.fun) for component-based views. It is an alternative to [ViewComponent](https://viewcomponent.org).
 - Uses Rails' default testing library, minitest along with [Factorybot](https://github.com/thoughtbot/factory_bot)
@@ -30,7 +30,7 @@
 - PostgreSQL 16.3
 - Bun
 
-Refer 
+Refer [installing prerequisites](./docs/installing_prerequisites.md) to install these dependencies
 
 ### Building a new application
 
