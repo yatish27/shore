@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="#">
-    <img src="https://github.com/yatish27/shore/assets/1014383/fbad8ed2-9510-4693-a342-4bafa515b164" width="200px"/>
+    <img src="https://github.com/yatish27/shore/assets/1014383/fbad8ed2-9510-4693-a342-4bafa515b164" width="128px"/>
   </a>
 
   Shore
@@ -12,6 +12,7 @@
     <a href="https://github.com/yatish27/shore/blob/master/LICENSE.txt">
       <img alt="License" src="https://img.shields.io/badge/license-MIT-428F7E.svg"/>
     </a>
+    <a href="https://codeclimate.com/github/yatish27/shore/maintainability"><img src="https://api.codeclimate.com/v1/badges/1cd4e3f1c0a4c5af29b1/maintainability" /></a>
   </p>
 </h1>
 
