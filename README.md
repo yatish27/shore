@@ -25,63 +25,57 @@
 
 
 ## Getting Started 💻
-Shore is preconfigured base Ruby on Rails application. You can clone this repository and add it to your repo.
 
-```bash
-git clone git@github.com:yatish27/shore.git your_new_project_name
-```
 
 ### Requirements
 You will need the following installed to run the application.
 
-- Ruby 3.3.1
-  - Check the [.ruby-version](.ruby-version)
+- Ruby [3.3.1](.ruby-version)
 - PostgreSQL 16.3
 - Bun 1.1.8
 - [Overmind](https://github.com/DarthSim/overmind) (optional), it will be used in place of Foreman.
 - Docker & Docker Desktop if you want to use docker compose for local development 
+
 Refer [installing prerequisites](./docs/installing_prerequisites.md) to install these dependencies
 
-All Homebrew dependencies are in `Brewfile`, you can install them in one shot.
-
-```bash
-brew bundle install --no-upgrade
-```
-Make sure your postgresSQL server is running.
-
 ### Initial setup
+- Shore is preconfigured base Ruby on Rails application. You can clone this repository and add it to your repo.
+  ```bash
+  git clone git@github.com:yatish27/shore.git your_new_project_name
+  cd your_new_project_name
+  ```
 
-The default name of the application is Shore. You can rename the application to you desired new name.
+- The default name of the application is Shore. You can rename the application to you desired new name.
 The name should be in camelcase.
 
-```bash
-./bin/replace_name YourNewProjectName
-```
+  ```bash
+  ./bin/replace_name YourNewProjectName
+  ```
 
-Copy the `env.sample` to `.env`
+- Copy the `env.sample` to `.env`
 
-The default username and password for database is set to `postgres` and `password`. You can override them in `.env` file.
+- The default username and password for database is set to `postgres` and `password`. You can override them in `.env` file.
 
 
-Run `bin/setup` to setup the application. It prepares the database, install the required ruby gems and javascript packages. The script is idempotent, so you can run it multiple times.
+- Run `bin/setup` to setup the application. It prepares the database, install the required ruby gems and javascript packages. The script is idempotent, so you can run it multiple times.
 
-```bash
-./bin/setup
-```
+  ```bash
+  ./bin/setup
+  ```
 
 ### Running the application
+
 Start your application
 
 ```bash
 bin/dev
 ```
 
-
 This runs overmind or foreman using the Procfile.dev. It starts the rails server, solid queue background job process and vite server.
 
 Visit `http://localhost:3000` to see the home page 🚀.
 
-### Running locally with docker compose
+### Running with docker compose
 Shore has support for docker and docker compose for local development.
 Refer the [Dockerfile](./Dockerfile.dev) and [docker-compose.yml](./docker-compose.yml).
 
@@ -91,7 +85,7 @@ Once you have cloned the repository and have docker installed
 - Run `docker compose run --rm web bin/setup` to create and setup the database.
 - Run `docker-compose up` to start the application. 
 Since the local code from your host machine is mounted in the docker container, any change made in the code will be directly reflected. You don't need to rebuild you container.
- 
+
 ## Testing 🧪
 Running all tests
 ```
@@ -103,4 +97,8 @@ Running a single test
 ./bin/rails test test/jobs/hello_world_job_test.rb
 ```
 
+## License 🔑
+Shore is released under the MIT License.
 
+## Contributing 🤝
+PRs are welcome to repository

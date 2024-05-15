@@ -1,4 +1,4 @@
-# Prerequsisties
+# Requirements
 
 ## Ruby
 Use a Ruby version manager like [rbenv](https://github.com/rbenv/rbenv?tab=readme-ov-file#using-package-managers) to install ruby.
