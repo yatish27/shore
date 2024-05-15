@@ -188,7 +188,7 @@ Once you have cloned the repository and have Docker installed follow the follwin
 - Run `docker compose build` to build. It will build the images.
 - Run `docker compose run --rm web bin/setup` to create and setup the database.
 - Run `docker compose up` to start the application. 
-Since the local code from your host machine is mounted in the docker container, any change made in the code will be directly reflected. You don't need to rebuild you container.
+Since the local code from your host machine is mounted in the docker container, any change made locally will be directly reflected. You don't need to rebuild the container.
 
 ## Deployment
 - Heroku
