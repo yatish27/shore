@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+require "colorize"
+
+def gsub_in_file(path, from, to)
+  text = File.read(path)
+  replace = text.gsub(from, to)
+  File.open(path, "w") { |file| file.puts replace }
+end
+
+def underscore(string)
+  string.gsub(/::/, '/')
+    .gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2')
+    .gsub(/([a-z\d])([A-Z])/, '\1_\2')
+    .tr("-", "_")
+    .downcase
+end
+
+if ARGV.length != 1
+  puts "Usage: bin/rename_project NewName"
+  exit 1
+end
+
+new_name = ARGV[0]
+new_snake_name = underscore(new_name)
+new_upcase_name = new_snake_name.upcase
+
+puts "Renaming to #{new_name}..."
+
+gsub_in_file("config/application.rb", /module Shore/, "module #{new_name}")
+gsub_in_file("app/helpers/application_helper.rb", /Shore/, new_name)
+gsub_in_file("config/environment.rb", /Shore/, new_name)
+gsub_in_file("config/environments/production.rb", /shore/, new_snake_name)
+gsub_in_file("config/cable.yml", /shore/, new_snake_name)
+gsub_in_file("config/database.yml", /SHORE/, new_upcase_name)
+gsub_in_file("config/database.yml", /shore/, new_snake_name)
+gsub_in_file("docker-compose.yml", /shore/, new_snake_name)
+
+puts "Renamed the project to #{new_name}."
+puts "Check the changes using git diff"

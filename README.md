@@ -31,6 +31,7 @@
   - Check the [.ruby-version](.ruby-version)
 - PostgreSQL 16.3
 - Bun 1.1.8
+- [Overmind](https://github.com/DarthSim/overmind) (optional), it will be used in place of Foreman - `brew install tmux overmind`
 
 Refer [installing prerequisites](./docs/installing_prerequisites.md) to install these dependencies
 
@@ -46,10 +47,11 @@ git clone git@github.com:yatish27/shore.git your_new_project_name
 cd your_new_project_name
 ```
 
-3. Replace `Shore` with your application's name. Let's say you want to name your project as `AirKit`
+3. Replace `Shore` with your application's name. The name should be camelCase. 
+
 
 ```
-./bin/replace_name AirKit
+./bin/replace_name YourNewProjectName
 ```
 
 4. Run setup
@@ -64,3 +66,5 @@ bin/dev
 ```
 
 6. Visit `http://localhost:3000`
+
+
