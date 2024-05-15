@@ -1,8 +1,19 @@
-![shore_logo_128](https://github.com/yatish27/shore/assets/1014383/fbad8ed2-9510-4693-a342-4bafa515b164)
+<h1 align="center">
+  <a href="#">
+    <img src="https://github.com/yatish27/shore/assets/1014383/fbad8ed2-9510-4693-a342-4bafa515b164" width="200px"/>
+  </a>
 
-# Shore
+  Shore
 
-![example workflow](https://github.com/yatish27/shore/actions/workflows/ci.yml/badge.svg)
+  <p align="center">
+    <a href="https://github.com/yatish27/shore/actions">
+      <img alt="Build Status" src="https://github.com/yatish27/shore/actions/workflows/ci.yml/badge.svg"/>
+    </a>
+    <a href="https://github.com/yatish27/shore/blob/master/LICENSE.txt">
+      <img alt="License" src="https://img.shields.io/badge/license-MIT-428F7E.svg"/>
+    </a>
+  </p>
+</h1>
 
 ## Introduction
 
@@ -68,7 +79,7 @@ The name should be in camelcase.
 Start your application
 
 ```bash
-bin/dev
+./bin/dev
 ```
 
 This runs overmind or foreman using the Procfile.dev. It starts the rails server, solid queue background job process and vite server.
