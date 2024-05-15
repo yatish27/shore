@@ -6,6 +6,5 @@ brew "curl"
 # Overmind (requires tmux)
 brew "tmux"
 brew "overmind"
-
-tap "oven-sh/bun"
-brew "bun"
+brew "node"
+brew "yarn"
