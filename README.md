@@ -36,10 +36,10 @@
 - **Deployment**: Supports deployment at [Heroku](https://www.heroku.com/platform) and [Render](https://render.com)
 
 
-## Getting Started 💻
+## Getting Started 🚀
 
 
-### Requirements
+### System Requirements
 You will need the following installed to run the application.
 
 - Ruby [3.3.1](.ruby-version)
@@ -98,6 +98,8 @@ Once you have cloned the repository and have docker installed
 - Run `docker-compose up` to start the application. 
 Since the local code from your host machine is mounted in the docker container, any change made in the code will be directly reflected. You don't need to rebuild you container.
 
+## Deployment
+
 ## Testing 🧪
 Running all tests
 ```
@@ -110,7 +112,7 @@ Running a single test
 ```
 
 ## License 🔑
-Shore is released under the MIT License.
+Shore is released under the [MIT License](./LICENSE.txt).
 
 ## Contributing 🤝
-PRs are welcome to repository
+PRs are welcome

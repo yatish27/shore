@@ -1,0 +1,41 @@
+databases:
+  - name: database
+    databaseName: database
+    user: shore
+    plan: starter
+
+services:
+  - type: web
+    name: web
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: database
+          property: connectionString
+      - fromGroup: settings
+  - type: worker
+    name: worker
+    env: ruby
+    buildCommand: "bundle install && bundle exec rake assets:precompile && bundle exec rake assets:clean"
+    startCommand: "bundle exec rake solid_queue:start"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: database
+          property: connectionString
+      - fromGroup: settings
+
+envVarGroups:
+  - name: settings
+    envVars:
+      - key: FONTAWESOME_NPM_AUTH_TOKEN
+        sync: false
+      - key: POSTMARK_API_TOKEN
+        sync: false
+      - key: HIDE_THINGS
+        generateValue: true
+      - key: SECRET_KEY_BASE
+        generateValue: true
