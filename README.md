@@ -41,18 +41,14 @@
 ### System Requirements
 You will need the following to run the application.
 
-- Ruby 3.3.1
-- PostgreSQL 16.3
-- Node & Yarn
-- [Overmind](https://github.com/DarthSim/overmind) (optional), it will be used in place of Foreman.
-- Docker & Docker Desktop if you want to use docker compose for local development 
-
 - **Ruby 3.3.1**
   <details>
     <summary>How to install Ruby</summary>
+    
     Use a Ruby version manager like [rbenv](https://github.com/rbenv/rbenv?tab=readme-ov-file#using-package-managers) to install ruby.
+    
     1. Install rbenv
-    ```
+    ```bash
     brew install rbenv ruby-build
     ```
 
@@ -127,14 +123,20 @@ You will need the following to run the application.
     ```
     brew install node
     ```
+    ```
+    node -v
+    ```
   </details>
 
-- **Yarn 1.2**
+- **Yarn 1.22**
   <details>
     <summary>How to install Yarn</summary>
     
     ```
     brew install yarn
+    ```
+    ```
+    yarn -v
     ```
   </details>
 
