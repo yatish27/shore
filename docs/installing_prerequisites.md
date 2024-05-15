@@ -69,8 +69,6 @@ ALTER ROLE postgres WITH PASSWORD 'password';
 ## Bun
 Visit [bun.sh](https://bun.sh/docs/installation) to learn about installation process
 
-### Using homebrew
-
 ```
 brew install oven-sh/bun/bun
 ```
@@ -80,3 +78,20 @@ After installing, check the version
 ```
 bun -v
 ```
+
+## Overmind
+Overmind is an alternative to Foreman. It requires tmux
+[Overmind](https://github.com/DarthSim/overmind)
+
+```
+brew install tmux overmind
+```
+
+## Docker
+Install docker using homebrew
+```
+brew install docker
+```
+Latest version of docker install docker compose along with it.
+
+To install the docker desktop, visit https://www.docker.com/products/docker-desktop/

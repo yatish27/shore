@@ -25,46 +25,82 @@
 
 
 ## Getting Started 💻
+Shore is preconfigured base Ruby on Rails application. You can clone this repository and add it to your repo.
 
-### Prerequisites
+```bash
+git clone git@github.com:yatish27/shore.git your_new_project_name
+```
+
+### Requirements
+You will need the following installed to run the application.
+
 - Ruby 3.3.1
   - Check the [.ruby-version](.ruby-version)
 - PostgreSQL 16.3
 - Bun 1.1.8
-- [Overmind](https://github.com/DarthSim/overmind) (optional), it will be used in place of Foreman - `brew install tmux overmind`
-
+- [Overmind](https://github.com/DarthSim/overmind) (optional), it will be used in place of Foreman.
+- Docker & Docker Desktop if you want to use docker compose for local development 
 Refer [installing prerequisites](./docs/installing_prerequisites.md) to install these dependencies
 
-### Building a new application
+All Homebrew dependencies are in `Brewfile`, you can install them in one shot.
 
-1. Clone the base repository
+```bash
+brew bundle install --no-upgrade
 ```
-git clone git@github.com:yatish27/shore.git your_new_project_name
-```
+Make sure your postgresSQL server is running.
 
-2. Enter the project directory
-```
-cd your_new_project_name
-```
+### Initial setup
 
-3. Replace `Shore` with your application's name. The name should be camelCase. 
+The default name of the application is Shore. You can rename the application to you desired new name.
+The name should be in camelcase.
 
-
-```
+```bash
 ./bin/replace_name YourNewProjectName
 ```
 
-4. Run setup
+Copy the `env.sample` to `.env`
 
-```
+The default username and password for database is set to `postgres` and `password`. You can override them in `.env` file.
+
+
+Run `bin/setup` to setup the application. It prepares the database, install the required ruby gems and javascript packages. The script is idempotent, so you can run it multiple times.
+
+```bash
 ./bin/setup
 ```
 
-5. Start your application
-```
+### Running the application
+Start your application
+
+```bash
 bin/dev
 ```
 
-6. Visit `http://localhost:3000`
+
+This runs overmind or foreman using the Procfile.dev. It starts the rails server, solid queue background job process and vite server.
+
+Visit `http://localhost:3000` to see the home page 🚀.
+
+### Running locally with docker compose
+Shore has support for docker and docker compose for local development.
+Refer the [Dockerfile](./Dockerfile.dev) and [docker-compose.yml](./docker-compose.yml).
+
+Once you have cloned the repository and have docker installed
+
+- Run `docker compose build` to build. It will build the images.
+- Run `docker compose run --rm web bin/setup` to create and setup the database.
+- Run `docker-compose up` to start the application. 
+Since the local code from your host machine is mounted in the docker container, any change made in the code will be directly reflected. You don't need to rebuild you container.
+ 
+## Testing 🧪
+Running all tests
+```
+./bin/rails test:all
+```
+
+Running a single test
+```
+./bin/rails test test/jobs/hello_world_job_test.rb
+```
 
 
