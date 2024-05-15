@@ -1,0 +1,37 @@
+FROM registry.docker.com/library/ruby:3.3.1-slim
+
+ENV APP_PATH /var/app
+ENV BUNDLE_VERSION 2.5.10
+ENV BUN_VERSION 1.1.8
+ENV RAILS_PORT 3000
+ENV BUNDLE_PATH /usr/local/bundle
+ENV BUNDLE_PATH /usr/local/bundle
+ENV GEM_PATH /usr/local/bundle
+ENV GEM_HOME /usr/local/bundle
+ENV BUN_INSTALL /usr/local/bun
+ENV PATH $BUN_INSTALL/bin:$PATH
+
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+RUN <<EOF
+apt-get update
+apt-get install -y build-essential libpq-dev curl unzip
+EOF
+
+RUN curl -fsSL https://bun.sh/install | bash -s -- "bun-v${BUN_VERSION}"
+
+RUN gem install bundler --version "$BUNDLE_VERSION"
+
+WORKDIR $APP_PATH
+
+COPY Gemfile Gemfile.lock ./
+COPY package.json ./
+
+RUN bundle check || bundle install --jobs=8
+RUN bun install
+
+COPY . .
+
+EXPOSE $RAILS_PORT

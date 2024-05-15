@@ -32,17 +32,17 @@ FileUtils.chdir APP_ROOT do
   # This script is idempotent, so that you can run it at any time and get an expectable outcome.
   # Add necessary setup steps to this file.
   
-  unless File.exist?(".env")
+  if File.exist?(".env.sample") && !File.exist?(".env")
     puts "\n== Copying env.sample files =="
     FileUtils.cp ".env.sample", ".env"
     puts "Copied .env.sample to .env".green
   end
 
-  # Install system dependencies if Homebrew is installed
-  if Gem::Platform.local.os.include?("darwin") && command?("brew")
-    puts "\n== Installing packages with Homebrew =="
-    system("brew bundle check --no-lock --no-upgrade") || system!("brew bundle --no-upgrade --no-lock")
-  end
+  # # Install system dependencies if Homebrew is installed
+  # if Gem::Platform.local.os.include?("darwin") && command?("brew")
+  #   puts "\n== Installing packages with Homebrew =="
+  #   system("brew bundle check --no-lock --no-upgrade") || system!("brew bundle --no-upgrade --no-lock")
+  # end
 
   puts "\n== Installing gems =="
   system! "gem install bundler --conservative"
