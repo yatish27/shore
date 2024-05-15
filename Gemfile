@@ -25,7 +25,6 @@ group :development do
   gem "brakeman", require: false
   gem "bundler-audit", "~> 0.9.1", require: false
   gem "erb_lint", "~> 0.5", require: false
-  gem "overmind"
   gem "foreman", "~> 0.87", ">= 0.87.2"
   gem "colorize", "~> 1.1"
   gem "letter_opener", "~> 1.10"
