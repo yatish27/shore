@@ -27,10 +27,17 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - uses: oven-sh/setup-bun@v1
+      
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-            bun-version: 1.1.8
-      - run: bun install      
+          node-version: '16'
+          cache: yarn
+  
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile    
+    
       - run: bundle exec rake db:migrate
       - run: bundle exec rake test:all
   rubocop:
