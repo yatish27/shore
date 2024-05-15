@@ -26,7 +26,6 @@
 - **PostgreSQL**: [PostgresSQL 16.3](https://www.postgresql.org)
 - **Tailwind CSS**: Uses [Tailwind CSS](https://tailwindcss.com) for styling.
 - **Vite Ruby**: Uses [Vite Ruby](https://vite-ruby.netlify.app) for asset management. It is based on [Vite.js](https://vitejs.dev). It replaces webpacker, jsbundling-rails, cssbundling-rails, importmaps and sprockets.
-- **Bun**: Uses [Bun](https://bun.sh) for npm package manager. No need to install node and yarn.
 - **Phlex**: Uses [Phlex](https://www.phlex.fun) for component-based views. It is an alternative to [ViewComponent](https://viewcomponent.org).
 - **Solid Queue**: Uses [Solid Queue](https://github.com/rails/solid_queue) for background processing.
 - **Minitest/FactoryBot**: Uses Rails' default testing library, minitest along with [Factorybot](https://github.com/thoughtbot/factory_bot).
@@ -45,6 +44,7 @@ You will need the following installed to run the application.
 - Ruby [3.3.1](.ruby-version)
 - PostgreSQL 16.3
 - Bun 1.1.8
+- Node & Yarn
 - [Overmind](https://github.com/DarthSim/overmind) (optional), it will be used in place of Foreman.
 - Docker & Docker Desktop if you want to use docker compose for local development 
 

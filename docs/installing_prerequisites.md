@@ -66,17 +66,14 @@ ALTER ROLE postgres WITH PASSWORD 'password';
 3. Start the server and initialize the cluster using the UI
 
 
-## Bun
-Visit [bun.sh](https://bun.sh/docs/installation) to learn about installation process
-
+## Node
 ```
-brew install oven-sh/bun/bun
+brew install node
 ```
 
-After installing, check the version 
-
+## Yarn
 ```
-bun -v
+brew install yarn
 ```
 
 ## Overmind
