@@ -77,17 +77,17 @@ You will need the following to run the application.
 
     1. Install 
 
-      ```
+      ```bash
       brew install postgresql@16
       ```
 
     2. Add psql to $PATH
 
-      ```
+      ```bash
       echo 'export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"' >> ~/.bashrc
       ```
     3. Start the server
-    ```
+    ```bash
     brew services start postgresql@16
 
     ```
@@ -141,17 +141,16 @@ You will need the following to run the application.
   </details>
 
 
-Refer [installing prerequisites](./docs/installing_prerequisites.md) to install these dependencies
+Refer [here](./docs/installing_prerequisites.md) to install these dependencies
 
 ### Initial setup
-- Shore is preconfigured base Ruby on Rails application. You can clone this repository and add it to your repo.
+- Shore is a preconfigured base Ruby on Rails application. You can clone this repository and add it to your repo.
   ```bash
   git clone git@github.com:yatish27/shore.git your_new_project_name
   cd your_new_project_name
   ```
 
-- The default name of the application is Shore. You can rename the application to you desired new name.
-The name should be in camelcase.
+- The application's default name is Shore. You can rename it to your desired new name. The name should be in camelcase.
 
   ```bash
   ./bin/replace_name YourNewProjectName
@@ -161,8 +160,7 @@ The name should be in camelcase.
 
 - The default username and password for database is set to `postgres` and `password`. You can override them in `.env` file.
 
-
-- Run `bin/setup` to setup the application. It prepares the database, install the required ruby gems and javascript packages. The script is idempotent, so you can run it multiple times.
+- Run `bin/setup` to set up the application. It prepares the database and installs the required Ruby gems and Javascript packages. The script is idempotent, so you can run it multiple times.
 
   ```bash
   ./bin/setup
@@ -182,10 +180,10 @@ Visit `http://localhost:3000` to see the home page 🚀.
 
 ### Running locally with docker 
 Shore has support for docker and docker compose.
-Install Docker and docker desktop
+Install Docker and Docker desktop,
 
 
-Once you have cloned the repository and have docker installed
+Once you have cloned the repository and have Docker installed follow the follwing steps
 
 - Run `docker compose build` to build. It will build the images.
 - Run `docker compose run --rm web bin/setup` to create and setup the database.
