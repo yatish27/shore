@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Shore
   class Application < Rails::Application
+    config.autoload_paths << "#{root}/app/views"
+    config.autoload_paths << "#{root}/app/views/layouts"
+    config.autoload_paths << "#{root}/app/views/components"
     # Prevents Rails from trying to eager-load the contents of app/frontend
     config.javascript_path = "frontend"
 

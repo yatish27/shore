@@ -12,12 +12,13 @@ gem "stimulus-rails", "~> 1.3", ">= 1.3.3"
 gem "turbo-rails", "~> 2.0", ">= 2.0.5"
 gem "tzinfo-data", "~> 1.2024", ">= 1.2024.1", platforms: %i[windows jruby]
 gem "vite_rails", "~> 3.0", ">= 3.0.17"
+gem "phlex-rails", "~> 1.2"
 
 group :development, :test do
   gem "debug", "~> 1.9", ">= 1.9.2", platforms: %i[mri windows]
   gem "dotenv", "~> 3.1", ">= 3.1.2"
   gem "factory_bot_rails", "~> 6.4", ">= 6.4.3"
-  gem "rubocop-rails-omakase", "~> 1.0", require: false, group: [ :development ]
+  gem "rubocop-rails-omakase", "~> 1.0", require: false, group: [:development]
   gem "minitest-reporters", "~> 1.6", ">= 1.6.1"
 end
 

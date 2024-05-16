@@ -5,7 +5,7 @@ require "fileutils"
 
 begin
   Gem::Specification.find_by_name("colorize")
-rescue LoadError => e
+rescue LoadError
   puts "Installing colorize gem"
   system("gem install colorize")
 end
@@ -23,8 +23,7 @@ end
 # Check if a command exists
 def command?(name)
   [name,
-   *ENV['PATH'].split(File::PATH_SEPARATOR).map {|p| File.join(p, name)}
-  ].find {|f| File.executable?(f)}
+    *ENV["PATH"].split(File::PATH_SEPARATOR).map { |p| File.join(p, name) }].find { |f| File.executable?(f) }
 end
 
 FileUtils.chdir APP_ROOT do
@@ -58,7 +57,7 @@ FileUtils.chdir APP_ROOT do
     system!("bin/rails tmp:create")
     puts "tmp/pids directory created".green
   end
- 
+
   puts "\n== Removing old logs and tempfiles =="
   system! "bin/rails log:clear tmp:clear"
   puts "Old logs and tempfiles removed".green
