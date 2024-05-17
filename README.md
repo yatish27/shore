@@ -18,6 +18,7 @@
 
 ## Introduction
 
+Shore is a Ruby on Rails template with modern stack to start your new project.
 
 ## Features ⚡️
 
