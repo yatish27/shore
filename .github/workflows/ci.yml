@@ -30,17 +30,7 @@ jobs:
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: 1.1.8
-      - run: bun install       
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 'latest'
-          cache: yarn
-  
-      - name: Install dependencies
-        run: |
-          yarn install --frozen-lockfile    
-    
+      - run: bun install
       - run: bundle exec rake db:migrate
       - run: bundle exec rake test:all
   rubocop:
