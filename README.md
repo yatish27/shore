@@ -27,6 +27,7 @@ Shore is a Ruby on Rails template with modern stack to start your new project.
 - **PostgreSQL**: [PostgresSQL 16.3](https://www.postgresql.org)
 - **Tailwind CSS**: Uses [Tailwind CSS](https://tailwindcss.com) for styling.
 - **Vite Ruby**: Uses [Vite Ruby](https://vite-ruby.netlify.app) for asset management. It is based on [Vite.js](https://vitejs.dev). It replaces webpacker, jsbundling-rails, cssbundling-rails, importmaps and sprockets.
+- **Bun**: Use Bun for package manager. It replaces Node and Yarn.
 - **Phlex**: Uses [Phlex](https://www.phlex.fun) for component-based views. It is an alternative to [ViewComponent](https://viewcomponent.org).
 - **Solid Queue**: Uses [Solid Queue](https://github.com/rails/solid_queue) for background processing.
 - **Minitest/FactoryBot**: Uses Rails' default testing library, minitest along with [Factorybot](https://github.com/thoughtbot/factory_bot).
@@ -119,25 +120,13 @@ You will need the following to run the application.
 
 - **Node 22**
   <details>
-    <summary>How to install Node</summary>
+    <summary>How to install Bun</summary>
     
     ```
-    brew install node
+    brew install oven-sh/bun/bun
     ```
     ```
-    node -v
-    ```
-  </details>
-
-- **Yarn 1.22**
-  <details>
-    <summary>How to install Yarn</summary>
-    
-    ```
-    brew install yarn
-    ```
-    ```
-    yarn -v
+    bun -v
     ```
   </details>
 

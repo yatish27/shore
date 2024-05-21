@@ -66,24 +66,12 @@ ALTER ROLE postgres WITH PASSWORD 'password';
 3. Start the server and initialize the cluster using the UI
 
 
-## Node
+## Bun
 ```
-brew install node
-```
-
-## Yarn
-```
-brew install yarn
+brew install oven-sh/bun/bun
 ```
 
-## Overmind
-Overmind is an alternative to Foreman. It requires tmux
-[Overmind](https://github.com/DarthSim/overmind)
-
-```
-brew install tmux overmind
-```
-
+Visit https://bun.sh/docs/installation for more details
 ## Docker
 Install docker using homebrew
 ```
