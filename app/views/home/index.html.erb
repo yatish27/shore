@@ -5,10 +5,11 @@
       <%= vite_image_tag("images/logo-sm.png", class: "h-12 w-12 rounded-full") %>
       <h1 class="scroll-m-20 text-4xl font-bold tracking-tight">Shore</h1>
     </div>
-    <p class=" text-lg text-gray-600">An opinionated and modern Ruby on Rails template with pragmatic defaults to start your next project 🚀</p>
+    <p class=" text-lg text-gray-600">A modern Ruby on Rails template with production ready recommended defaults to start your next project 🚀</p>
     <p class="text-lg text-gray-600 mt-6">
       Stimulus says,
       <i class="text-indigo-600" data-controller="hello">Stimulus not loaded 😥</i>
     </p>
+    <%= render BasicComponent.new(version: Gem.loaded_specs["phlex"].version.to_s) %>
   </div>
 </div>
