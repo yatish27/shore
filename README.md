@@ -118,7 +118,7 @@ You will need the following to run the application.
 
   </details>
 
-- **Node 22**
+- **Bun**
   <details>
     <summary>How to install Bun</summary>
     
@@ -169,13 +169,12 @@ This runs overmind or foreman using the Procfile.dev. It starts the rails server
 Visit `http://localhost:3000` to see the home page 🚀.
 
 ### Running locally with docker 
-Shore has support for docker and docker compose.
+Shore supports docker and docker compose for local development.
 Install Docker and Docker desktop,
-
 
 Once you have cloned the repository and have Docker installed follow the follwing steps
 
-- Run `docker compose build` to build. It will build the images.
+- Run `docker compose build` to build. It will build the necessary images.
 - Run `docker compose run --rm web bin/setup` to create and setup the database.
 - Run `docker compose up` to start the application. 
 Since the local code from your host machine is mounted in the docker container, any change made locally will be directly reflected. You don't need to rebuild the container.
