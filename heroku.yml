@@ -4,9 +4,11 @@ setup:
       as: DATABASE
 build:
   docker:
-    web: docker pull ghcr.io/yatish27/shore:main
+    web: 
+      - docker pull ghcr.io/yatish27/shore:main
 release:
-  command: bundle exec rake db:migrate    
+  command: 
+    - bundle exec rake db:migrate    
 run:
   web: bundle exec puma -C config/puma.rb
   worker:
