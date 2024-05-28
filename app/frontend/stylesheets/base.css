@@ -16,8 +16,8 @@
 
 @font-face {
   font-family: "DMSans";
-  src: url("@assets/fonts/dm_sans/DMSansVF.ttf") format("truetype");
-  font-weight: 100 900;
+  src: url("@assets/fonts/dm_sans/DMSans-Regular.woff2") format("woff2");
+  font-weight: normal;
   font-style: normal;
 }
 
