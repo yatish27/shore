@@ -1,5 +1,18 @@
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: DATABASE
+
 build:
   docker:
-    web: Dockerfile
+    web: docker pull ghcr.io/yatish27/shore:main
+
+release:
+  command: bundle exec rake db:migrate    
+
 run:
   web: bundle exec puma -C config/puma.rb
+  worker:
+    command:
+      - bundle exec rake solid_queue:start
+    image: web
