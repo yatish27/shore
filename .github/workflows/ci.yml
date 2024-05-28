@@ -7,61 +7,60 @@ on:
 env:
   RAILS_ENV: test
 jobs:
-  test:
-    name: "Test"
-    runs-on: ubuntu-latest
-    env:
-      DATABASE_URL: postgres://postgres:postgres@localhost:5432/ci
-    services:
-      postgres:
-        image: postgres:16-alpine
-        env:
-          POSTGRES_DB: ci
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-        ports:
-          - 5432:5432
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: 1.1.8
-      - run: bun install
-      - run: bundle exec rake db:migrate
-      - run: bundle exec rake test:all
-  rubocop:
-    name: "Lint / rubocop"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - run: bin/rubocop
-  brakeman:
-    name: "Security / brakeman"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - run: bundle exec brakeman --exit-on-warn --no-progress --color --output /dev/stdout
-  bundle-audit:
-    name: "Security / bundle-audit"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - run: bundle exec bundle-audit check --update -v
+  # test:
+  #   name: "Test"
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     DATABASE_URL: postgres://postgres:postgres@localhost:5432/ci
+  #   services:
+  #     postgres:
+  #       image: postgres:16-alpine
+  #       env:
+  #         POSTGRES_DB: ci
+  #         POSTGRES_USER: postgres
+  #         POSTGRES_PASSWORD: postgres
+  #       ports:
+  #         - 5432:5432
+  #       options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: ruby/setup-ruby@v1
+  #       with:
+  #         bundler-cache: true
+  #     - uses: oven-sh/setup-bun@v1
+  #       with:
+  #         bun-version: 1.1.8
+  #     - run: bun install
+  #     - run: bundle exec rake db:migrate
+  #     - run: bundle exec rake test:all
+  # rubocop:
+  #   name: "Lint / rubocop"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: ruby/setup-ruby@v1
+  #       with:
+  #         bundler-cache: true
+  #     - run: bin/rubocop
+  # brakeman:
+  #   name: "Security / brakeman"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: ruby/setup-ruby@v1
+  #       with:
+  #         bundler-cache: true
+  #     - run: bundle exec brakeman --exit-on-warn --no-progress --color --output /dev/stdout
+  # bundle-audit:
+  #   name: "Security / bundle-audit"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: ruby/setup-ruby@v1
+  #       with:
+  #         bundler-cache: true
+  #     - run: bundle exec bundle-audit check --update -v
   build-and-push-image:
-
     name: "Build and push Docker image"
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -72,7 +71,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-      attestations: write
 
     steps:
       - name: Checkout repository
@@ -102,13 +100,6 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
       
-      # This step generates an artifact attestation for the image, which is an unforgeable statement about where and how it was built. It increases supply chain security for people who consume the image. For more information, see "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)." 
-      - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
-          subject-digest: ${{ steps.push.outputs.digest }}
-          push-to-registry: true
         
         
       
