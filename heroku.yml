@@ -3,9 +3,7 @@ setup:
     - plan: heroku-postgresql
       as: DATABASE
 build:
-  docker:
-    web: 
-      - docker pull ghcr.io/yatish27/shore:main
+  image: ghcr.io/yatish27/shore:main
 release:
   command: 
     - bundle exec rake db:migrate    
