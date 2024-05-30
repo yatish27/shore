@@ -22,8 +22,7 @@ end
 
 # Check if a command exists
 def command?(name)
-  [name,
-    *ENV["PATH"].split(File::PATH_SEPARATOR).map { |p| File.join(p, name) }].find { |f| File.executable?(f) }
+  [name, *ENV["PATH"].split(File::PATH_SEPARATOR).map { |p| File.join(p, name) }].find { |f| File.executable?(f) }
 end
 
 FileUtils.chdir APP_ROOT do
@@ -37,10 +36,10 @@ FileUtils.chdir APP_ROOT do
   puts "Gems installed".green
 
   puts "\n== Installing packages using yarn=="
-  if command?("yarn") && `yarn -v`.to_f < 2
-    system("yarn check") || system!("yarn install")
+  if command?("bun")
+    system!("bun install")
   else
-    system!("yarn install")
+    puts "bun not found, visit https://bun.sh/docs/installation to install bun".red
   end
 
   puts "\n== Preparing database =="
