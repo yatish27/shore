@@ -26,8 +26,8 @@ Shore is a Ruby on Rails template with modern stack to start your new project.
 - **Rails**: [Rails 7.1](https://rubyonrails.org)
 - **PostgreSQL**: [PostgresSQL 16.3](https://www.postgresql.org)
 - **Tailwind CSS**: Uses [Tailwind CSS](https://tailwindcss.com) for styling.
-- **Vite Ruby**: Uses [Vite Ruby](https://vite-ruby.netlify.app) for asset management. It is based on [Vite.js](https://vitejs.dev). It replaces webpacker, jsbundling-rails, cssbundling-rails, importmaps and sprockets.
-- **Bun**: Use Bun for package manager. It replaces Node and Yarn.
+- **Vite Ruby**: Uses [Vite Ruby](https://vite-ruby.netlify.app) for asset management. It is based on [Vite.js](https://vitejs.dev). It replaces webpacker, jsbundling-rails, cssbundling-rails, importmaps and sprockets/propshaft.
+- **Bun**: Uses [Bun](https://bun.sh/) as package manager. It replaces Node and Yarn.
 - **Phlex**: Uses [Phlex](https://www.phlex.fun) for component-based views. It is an alternative to [ViewComponent](https://viewcomponent.org).
 - **Solid Queue**: Uses [Solid Queue](https://github.com/rails/solid_queue) for background processing.
 - **Minitest/FactoryBot**: Uses Rails' default testing library, minitest along with [Factorybot](https://github.com/thoughtbot/factory_bot).
@@ -71,9 +71,9 @@ You will need the following to run the application.
 
 - **PostgreSQL 16.3**
   <details>
-    <summary>How to install PostgresSQL</summary>
+    <summary>How to install PostgreSQL</summary>
     
-    You can install PostgresSQL using [postgresapp.com](https://postgresapp.com) or Homebrew
+    You can install PostgreSQL using [postgresapp.com](https://postgresapp.com) or Homebrew
 
     ### Using Homebrew
 
@@ -112,7 +112,7 @@ You will need the following to run the application.
 
     ### Using postgresapp.com
 
-    1. Visit https://postgresapp.com and download the app with PostgresSQL
+    1. Visit https://postgresapp.com and download the app with PostgreSQL
     2. Install the app
     3. Start the server and initialize the cluster using the UI
 
@@ -143,7 +143,7 @@ Refer [here](./docs/installing_prerequisites.md) to install these dependencies
 - The application's default name is Shore. You can rename it to your desired new name. The name should be in camelcase.
 
   ```bash
-  ./bin/replace_name YourNewProjectName
+  ./bin/rename_project YourNewProjectName
   ```
 
 - Copy the `env.sample` to `.env`
@@ -172,10 +172,10 @@ Visit `http://localhost:3000` to see the home page 🚀.
 Shore supports docker and docker compose for local development.
 Install Docker and Docker desktop,
 
-Once you have cloned the repository and have Docker installed follow the follwing steps
+Once you have cloned the repository and have Docker installed, follow the following steps
 
 - Run `docker compose build` to build. It will build the necessary images.
-- Run `docker compose run --rm web bin/setup` to create and setup the database.
+- Run `docker-compose run --rm web bin/setup` to create and set up the database.
 - Run `docker compose up` to start the application. 
 Since the local code from your host machine is mounted in the docker container, any change made locally will be directly reflected. You don't need to rebuild the container.
 
