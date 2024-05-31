@@ -22,29 +22,29 @@ ruby 3.3.1 (2024-04-23 revision c56cd86388) [arm64-darwin23]
 ```
 
 ## PostgresSQL
-You can install PostgresSQL using [postgresapp.com](https://postgresapp.com) or Homebrew
+You can install PostgreSQL using [postgresapp.com](https://postgresapp.com) or Homebrew
 
 ### Using Homebrew
 
 1. Install 
 
-```
+```bash
 brew install postgresql@16
 ```
 
-2. Add psql to $PATH
+2. Add `psql` to `$PATH`
 
-```
+```bash
 echo 'export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"' >> ~/.bashrc
 ```
 3. Start the server
-```
+```bash
 brew services start postgresql@16
 
 ```
 4. Create a `postgres` user
 
-```
+```sql
 createuser -s postgres
 ```
 
@@ -55,28 +55,28 @@ psql postgres
 ```
 Within psql  
 
-```
+```sql
 ALTER ROLE postgres WITH PASSWORD 'password';
 ```
 
 ### Using postgresapp.com
 
-1. Visit https://postgresapp.com and download the app with PostgresSQL
-2. Install the app
+1. Visit [postgresapp.com](https://postgresapp.com) and download the app with PostgreSQL app.
+2. Install the app.
 3. Start the server and initialize the cluster using the UI
 
-
 ## Bun
-```
+```bash
 brew install oven-sh/bun/bun
 ```
 
-Visit https://bun.sh/docs/installation for more details
+Visit [https://bun.sh/docs/installation](https://bun.sh/docs/installation) for more details
+
 ## Docker
 Install docker using homebrew
-```
+```bash
 brew install docker
 ```
-Latest version of docker install docker compose along with it.
+The latest version of docker comes with docker-compose.
 
 To install the docker desktop, visit https://www.docker.com/products/docker-desktop/
