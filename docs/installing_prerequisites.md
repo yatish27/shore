@@ -21,7 +21,7 @@ ruby -v
 ruby 3.3.1 (2024-04-23 revision c56cd86388) [arm64-darwin23]
 ```
 
-## PostgresSQL
+## PostgreSQL
 You can install PostgreSQL using [postgresapp.com](https://postgresapp.com) or Homebrew
 
 ### Using Homebrew
