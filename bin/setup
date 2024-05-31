@@ -35,7 +35,7 @@ FileUtils.chdir APP_ROOT do
   system("bundle check") || system!("bundle install")
   puts "Gems installed".green
 
-  puts "\n== Installing packages using yarn=="
+  puts "\n== Installing packages using bun=="
   if command?("bun")
     system!("bun install")
   else
