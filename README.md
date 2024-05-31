@@ -1,11 +1,11 @@
-<h1 align="center">
+<h1 align="left">
   <a href="#">
     <img src="https://github.com/yatish27/shore/assets/1014383/fbad8ed2-9510-4693-a342-4bafa515b164" width="128px"/>
   </a>
 
   Shore
 
-  <p align="center">
+  <p align="left">
     <a href="https://github.com/yatish27/shore/actions">
       <img alt="Build Status" src="https://github.com/yatish27/shore/actions/workflows/ci.yml/badge.svg"/>
     </a>
@@ -16,7 +16,7 @@
   </p>
 </h1>
 
-## Introduction
+## Introduction 📜
 
 Shore is a Ruby on Rails template with modern stack to start your new project.
 
@@ -43,93 +43,9 @@ Shore is a Ruby on Rails template with modern stack to start your new project.
 ### System Requirements
 You will need the following to run the application.
 
-- **Ruby 3.3.1**
-  <details>
-    <summary>How to install Ruby</summary>
-    
-    Use a Ruby version manager like [rbenv](https://github.com/rbenv/rbenv?tab=readme-ov-file#using-package-managers) to install ruby.
-    
-    1. Install rbenv
-    ```bash
-    brew install rbenv ruby-build
-    ```
-
-    2. Install ruby with the version in [.ruby-version](./../.ruby-version)
-
-    ```
-    rbenv install 3.3.1
-    ```
-
-    3. Check the version 
-    ```
-    ruby -v
-    ```
-    ```
-    ruby 3.3.1 (2024-04-23 revision c56cd86388) [arm64-darwin23]
-    ```
-  </details>
-
-- **PostgreSQL 16.3**
-  <details>
-    <summary>How to install PostgreSQL</summary>
-    
-    You can install PostgreSQL using [postgresapp.com](https://postgresapp.com) or Homebrew
-
-    ### Using Homebrew
-
-    1. Install 
-
-      ```bash
-      brew install postgresql@16
-      ```
-
-    2. Add psql to $PATH
-
-      ```bash
-      echo 'export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"' >> ~/.bashrc
-      ```
-    3. Start the server
-    ```bash
-    brew services start postgresql@16
-
-    ```
-    4. Create a `postgres` user
-
-    ```
-    createuser -s postgres
-    ```
-
-    5. Set the password for postgres
-
-    ```
-    psql postgres
-    ```
-    Within psql  
-
-    ```
-    ALTER ROLE postgres WITH PASSWORD 'password';
-    ```
-
-    ### Using postgresapp.com
-
-    1. Visit https://postgresapp.com and download the app with PostgreSQL
-    2. Install the app
-    3. Start the server and initialize the cluster using the UI
-
-  </details>
-
-- **Bun**
-  <details>
-    <summary>How to install Bun</summary>
-    
-    ```
-    brew install oven-sh/bun/bun
-    ```
-    ```
-    bun -v
-    ```
-  </details>
-
+- [**Ruby 3.3.1**](./docs/installing_prerequisites.md)
+- [**PostgreSQL 16.3**](./docs/installing_prerequisites.md)
+- [**Bun**](./docs/installing_prerequisites.md)
 
 Refer [here](./docs/installing_prerequisites.md) to install these dependencies
 
@@ -148,7 +64,7 @@ Refer [here](./docs/installing_prerequisites.md) to install these dependencies
 
 - Copy the `env.sample` to `.env`
 
-- The default username and password for database is set to `postgres` and `password`. You can override them in `.env` file.
+  - The default username and password for database is set to `postgres` and `password`. You can override them in `.env` file.
 
 - Run `bin/setup` to set up the application. It prepares the database and installs the required ruby gems and javascript packages. The script is idempotent, so you can run it multiple times.
 
@@ -179,7 +95,7 @@ Once you have cloned the repository and have Docker installed, follow the follow
 - Run `docker compose up` to start the application. 
 Since the local code from your host machine is mounted in the docker container, any change made locally will be directly reflected. You don't need to rebuild the container.
 
-## Deployment
+## Deployment 📦
 - Heroku
 - Render
 
