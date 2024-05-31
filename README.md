@@ -34,7 +34,7 @@ Shore is a Ruby on Rails template with modern stack to start your new project.
 - **Rubocop**: Auto-formats Ruby code with [rubocop](https://rubocop.org).
 - **Prettier**: Auto-formats JavaScript and CSS code with [prettier](https://prettier.io).
 - **Github Actions**: Uses Github Actions for continuous integration and deployment.
-- **Deployment**: Supports deployment at [Heroku](https://www.heroku.com/platform) and [Render](https://render.com)
+- **Deployment**: Supports deployment on [Heroku](https://www.heroku.com/platform) and [Render](https://render.com)
 
 
 ## Getting Started 🚀
@@ -150,7 +150,7 @@ Refer [here](./docs/installing_prerequisites.md) to install these dependencies
 
 - The default username and password for database is set to `postgres` and `password`. You can override them in `.env` file.
 
-- Run `bin/setup` to set up the application. It prepares the database and installs the required Ruby gems and Javascript packages. The script is idempotent, so you can run it multiple times.
+- Run `bin/setup` to set up the application. It prepares the database and installs the required ruby gems and javascript packages. The script is idempotent, so you can run it multiple times.
 
   ```bash
   ./bin/setup
