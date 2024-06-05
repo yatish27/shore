@@ -13,6 +13,7 @@ gem "turbo-rails", "~> 2.0", ">= 2.0.5"
 gem "tzinfo-data", "~> 1.2024", ">= 1.2024.1", platforms: %i[windows jruby]
 gem "vite_rails", "~> 3.0", ">= 3.0.17"
 gem "phlex-rails", "~> 1.2"
+gem "devise", "~> 4.9"
 
 group :development, :test do
   gem "debug", "~> 1.9", ">= 1.9.2", platforms: %i[mri windows]
@@ -37,5 +38,3 @@ group :development do
   gem "rubocop-rails", "~> 2.24", ">= 2.24.1", require: false
   gem "web-console", "~> 4.2", ">= 4.2.1"
 end
-
-gem "devise", "~> 4.9"
