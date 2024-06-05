@@ -18,6 +18,7 @@ group :development, :test do
   gem "debug", "~> 1.9", ">= 1.9.2", platforms: %i[mri windows]
   gem "dotenv", "~> 3.1", ">= 3.1.2"
   gem "factory_bot_rails", "~> 6.4", ">= 6.4.3"
+  gem "faker", "~> 3.4"
   gem "rubocop-rails-omakase", "~> 1.0", require: false, group: [:development]
   gem "minitest-reporters", "~> 1.6", ">= 1.6.1"
 end
