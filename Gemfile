@@ -37,3 +37,5 @@ group :development do
   gem "rubocop-rails", "~> 2.24", ">= 2.24.1", require: false
   gem "web-console", "~> 4.2", ">= 4.2.1"
 end
+
+gem "devise", "~> 4.9"
