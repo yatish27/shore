@@ -185,6 +185,8 @@ GEM
     nio4r (2.7.3)
     nokogiri (1.16.6-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.6-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.25.1)
     parser (3.3.4.0)
@@ -327,6 +329,7 @@ GEM
 
 PLATFORMS
   arm64-darwin
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (~> 1.18, >= 1.18.3)
