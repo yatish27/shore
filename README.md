@@ -22,7 +22,7 @@ Shore is a Ruby on Rails template with modern stack to start your new project.
 
 ## Features ⚡️
 
-- **Ruby**: Ruby 3.3.1 
+- **Ruby**: Ruby 3.3.2
 - **Rails**: [Rails 7.1](https://rubyonrails.org)
 - **PostgreSQL**: [PostgresSQL 16.3](https://www.postgresql.org)
 - **Tailwind CSS**: Uses [Tailwind CSS](https://tailwindcss.com) for styling.
@@ -43,7 +43,7 @@ Shore is a Ruby on Rails template with modern stack to start your new project.
 ### System Requirements
 You will need the following to run the application.
 
-- [**Ruby 3.3.1**](./docs/installing_prerequisites.md#ruby)
+- [**Ruby 3.3.2**](./docs/installing_prerequisites.md#ruby)
 - [**PostgreSQL 16.3**](./docs/installing_prerequisites.md#postgresql)
 - [**Bun**](./docs/installing_prerequisites.md#bun)
 

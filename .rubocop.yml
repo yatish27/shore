@@ -3,7 +3,7 @@ require:
   - rubocop-factory_bot
 
 AllCops:
-  TargetRubyVersion: 3.3.1
+  TargetRubyVersion: 3.3.2
 
 Bundler/DuplicatedGem:
   Enabled: true

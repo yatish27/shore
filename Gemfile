@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.3.1"
+ruby "3.3.2"
 
 gem "bootsnap", "~> 1.18", ">= 1.18.3", require: false
 gem "jbuilder", "~> 2.12"
