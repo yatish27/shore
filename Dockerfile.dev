@@ -1,4 +1,4 @@
-FROM registry.docker.com/library/ruby:3.3.1-slim
+FROM registry.docker.com/library/ruby:3.3.2-slim
 
 ENV APP_PATH /var/app
 ENV BUNDLE_VERSION 2.5.10
