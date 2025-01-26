@@ -1,17 +1,15 @@
 {
   "all": {
     "sourceCodeDir": "app/frontend",
-    "watchAdditionalPaths": [],
-    "viteBinPath": "bin/shims/vite"
+    "watchAdditionalPaths": []
   },
   "development": {
     "autoBuild": true,
     "publicOutputDir": "vite-dev",
-    "host": "127.0.0.1",
     "port": 3036
   },
   "test": {
-    "autoBuild": false,
+    "autoBuild": true,
     "publicOutputDir": "vite-test",
     "port": 3037
   }

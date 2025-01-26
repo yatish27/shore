@@ -7,9 +7,8 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore all environment files (except templates).
+# Ignore all environment files.
 /.env*
-!/.env*.erb
 
 # Ignore all default key files.
 /config/master.key
@@ -32,7 +31,7 @@
 !/tmp/storage/.keep
 
 # Ignore assets.
-/node_modules/*
+/node_modules/
 /app/assets/builds/*
 !/app/assets/builds/.keep
 /public/assets
@@ -40,12 +39,13 @@
 # Ignore CI service files.
 /.github
 
+# Ignore Kamal files.
+/config/deploy*.yml
+/.kamal
+
 # Ignore development files
 /.devcontainer
 
 # Ignore Docker-related files
 /.dockerignore
 /Dockerfile*
-
-/Brewfile
-/Brewfile.lock.json

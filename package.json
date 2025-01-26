@@ -1,18 +1,16 @@
 {
-  "private": true,
-  "type": "module",
+  "name": "shore",
+  "private": "true",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "vite": "^5.0.0",
+    "vite-plugin-rails": "^0.5.0",
+    "vite-plugin-ruby": "^5.1.0",
+    "vite-plugin-stimulus-hmr": "^3.0.0"
+  },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "@hotwired/turbo-rails": "^8.0.4",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "rollup": "^4.2.0",
-    "stimulus-vite-helpers": "^3.1.0",
-    "vite": "^5.2.11",
-    "vite-plugin-rails": "^0.5.0",
-    "vite-plugin-ruby": "^5.0.0"
-  },
-  "devDependencies": {
-    "tailwindcss": "^3.4.3"
+    "@hotwired/turbo-rails": "^8.0.12"
   }
 }

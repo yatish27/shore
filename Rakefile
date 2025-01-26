@@ -4,15 +4,3 @@
 require_relative "config/application"
 
 Rails.application.load_tasks
-
-Rake::Task[:default].prerequisites.clear if Rake::Task.task_defined?(:default)
-
-desc "Run all checks"
-task default: %w[test:all rubocop] do
-  Thor::Base.shell.new.say_status :OK, "All checks passed!"
-end
-
-desc "Apply auto-corrections"
-task fix: %w[rubocop:autocorrect_all] do
-  Thor::Base.shell.new.say_status :OK, "All fixes applied!"
-end
