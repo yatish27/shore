@@ -10,7 +10,7 @@ brew install rbenv ruby-build
 2. Install ruby with the version in [.ruby-version](./../.ruby-version)
 
 ```
-rbenv install 3.3.2
+rbenv install 3.4.1
 ```
 
 3. Check the version 
@@ -18,7 +18,7 @@ rbenv install 3.3.2
 ruby -v
 ```
 ```
-ruby 3.3.2 (2024-04-23 revision c56cd86388) [arm64-darwin23]
+ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
 ```
 
 ## PostgreSQL
@@ -29,17 +29,17 @@ You can install PostgreSQL using [postgresapp.com](https://postgresapp.com) or H
 1. Install 
 
 ```bash
-brew install postgresql@16
+brew install postgresql@17
 ```
 
 2. Add `psql` to `$PATH`
 
 ```bash
-echo 'export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"' >> ~/.bashrc
 ```
 3. Start the server
 ```bash
-brew services start postgresql@16
+brew services start postgresql@17
 
 ```
 4. Create a `postgres` user
@@ -65,12 +65,6 @@ ALTER ROLE postgres WITH PASSWORD 'password';
 2. Install the app.
 3. Start the server and initialize the cluster using the UI
 
-## Bun
-```bash
-brew install oven-sh/bun/bun
-```
-
-Visit [https://bun.sh/docs/installation](https://bun.sh/docs/installation) for more details
 
 ## Docker
 Install docker using homebrew
