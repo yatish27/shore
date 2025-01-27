@@ -99,17 +99,20 @@ production:
   primary: &primary_production
     <<: *default
     database: shore_production
-    username: shore
-    password: <%= ENV["SHORE_DATABASE_PASSWORD"] %>
+    url: <%= ENV["DATABASE_URL"] %>
   cache:
     <<: *primary_production
     database: shore_production_cache
     migrations_paths: db/cache_migrate
+    url: <%= ENV["DATABASE_URL"] %>
   queue:
     <<: *primary_production
     database: shore_production_queue
     migrations_paths: db/queue_migrate
+    url: <%= ENV["DATABASE_URL"] %>
   cable:
     <<: *primary_production
     database: shore_production_cable
     migrations_paths: db/cable_migrate
+    url: <%= ENV["DATABASE_URL"] %>
+
