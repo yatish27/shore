@@ -5,7 +5,7 @@ databases:
 
 services:
   - type: web
-    name: mysite
+    name: shore-web
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
