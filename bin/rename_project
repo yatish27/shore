@@ -35,7 +35,6 @@ gsub_in_file("config/environments/production.rb", /shore/, new_snake_name)
 gsub_in_file("config/cable.yml", /shore/, new_snake_name)
 gsub_in_file("config/database.yml", /SHORE/, new_upcase_name)
 gsub_in_file("config/database.yml", /shore/, new_snake_name)
-gsub_in_file("docker-compose.yml", /shore/, new_snake_name)
 
 puts "Renamed the project to #{new_name}."
 puts "Check the changes using git diff"
