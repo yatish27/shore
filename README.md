@@ -81,7 +81,7 @@ Start your application
 
 This runs overmind or foreman using the Procfile.dev. It starts the rails server, solid queue background job process and vite server.
 
-Visit `http://localhost:3000` to see the home page 🚀.
+Visit [http://localhost:3100](http://localhost:3100) to see the home page 🚀.
 
 ## Deployment 📦
 
