@@ -63,7 +63,7 @@ Refer [here](./docs/installing_prerequisites.md) to install these dependencies
 
 - Copy the `env.sample` to `.env`
 
-  - The default username and password for database is set to `postgres` and `password`. You can override them in `.env` file.
+  - The default username and password for database is set to `postgres` and `postgres`. You can override them in `.env` file.
 
 - Run `bin/setup` to set up the application. It prepares the database and installs the required ruby gems and javascript packages. The script is idempotent, so you can run it multiple times.
 
