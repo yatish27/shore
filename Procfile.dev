@@ -1,2 +1,3 @@
 vite: bin/vite dev
 web: bin/rails server -p $PORT
+worker: bin/jobs start
