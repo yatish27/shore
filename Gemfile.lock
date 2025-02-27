@@ -364,6 +364,7 @@ DEPENDENCIES
   capybara
   colorize
   debug
+  dotenv (~> 3.1)
   jbuilder
   kamal
   pg (~> 1.1)
