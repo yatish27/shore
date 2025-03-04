@@ -16,11 +16,11 @@ Shore
   </p>
 </h1>
 
-## Introduction 📜
+## Introduction 
 
 Shore is a Ruby on Rails template with modern stack to start your new project.
 
-## Features ⚡️
+## Features 
 
 - **Ruby**: Ruby 3.4.2
 - **Rails**: [Rails 8](https://rubyonrails.org)
@@ -35,7 +35,7 @@ Shore is a Ruby on Rails template with modern stack to start your new project.
 - **Github Actions**: Uses Github Actions for continuous integration and deployment.
 - **Deployment**: Supports deployment on [Heroku](https://www.heroku.com/platform) and [Render](https://render.com)
 
-## Getting Started 🚀
+## Getting Started 
 
 ### System Requirements
 
@@ -83,12 +83,12 @@ This runs overmind or foreman using the Procfile.dev. It starts the rails server
 
 Visit [http://localhost:3100](http://localhost:3100) to see the home page 🚀.
 
-## Deployment 📦
+## Deployment
 
 - Heroku
 - Render
 
-## Testing 🧪
+## Testing 
 
 Running all tests
 
@@ -102,10 +102,10 @@ Running a single test
 ./bin/rails test test/jobs/hello_world_job_test.rb
 ```
 
-## License 🔑
+## License 
 
 Shore is released under the [MIT License](./LICENSE.txt).
 
-## Contributing 🤝
+## Contributing 
 
 PRs are welcome
