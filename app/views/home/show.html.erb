@@ -1,71 +1,57 @@
-<% content_for :meta_description do %>
-Start building amazing web applications with Shore - powered by Ruby on Rails, Vite, and Tailwind CSS for rapid development and beautiful interfaces.
-<% end %>
-
-<div class="min-h-screen bg-gray-50">
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="text-center">
-      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-        Welcome to Your App
-      </h1>
-      <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-        Start building something amazing with Ruby on Rails, Vite and Tailwind CSS.
-      </p>
-      <div class="mt-10 flex justify-center gap-x-6">
-        <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-          Get started
-        </a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 py-2.5">
-          Learn more <span aria-hidden="true">→</span>
-        </a>
+<div class="min-h-screen bg-[#FAFAFA] text-[#1A1A1A]">
+  <main class="mx-auto max-w-[780px] px-5 py-16">
+    <div class="flex flex-col gap-10">
+      <div class="flex flex-col gap-4">
+        <h1 class="text-[35px] leading-[1.2] tracking-[-0.02em] font-bold">
+          Shore
+        </h1>
+        <p class="text-[15px] leading-[1.5] text-[#666666]">
+          A modern Ruby on Rails starter kit with Vite and Tailwind CSS integration. Build robust web applications with confidence.
+        </p>
       </div>
-      <div class="mt-16">
-        <h2 class="text-2xl font-bold tracking-tight text-gray-900 mb-8">Key Features</h2>
-        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="pt-6">
-            <div class="flow-root rounded-lg bg-white px-6 pb-8">
-              <div class="-mt-6">
-                <div class="inline-flex items-center justify-center rounded-md bg-indigo-600 p-3 shadow-lg">
-                  <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 class="mt-8 text-lg font-medium tracking-tight text-gray-900">Fast Development</h3>
-                <p class="mt-5 text-base text-gray-500">
-                  Build your application quickly with Rails conventions and Tailwind's utility-first approach.
-                </p>
-              </div>
-            </div>
+
+      <div class="flex flex-col gap-6">
+        <div class="rounded-lg border border-[#E6E6E6] bg-white">
+          <div class="border-b border-[#E6E6E6] px-5 py-4">
+            <h2 class="text-[13px] font-medium text-[#666666] uppercase tracking-wider">System Information</h2>
           </div>
-          <div class="pt-6">
-            <div class="flow-root rounded-lg bg-white px-6 pb-8">
-              <div class="-mt-6">
-                <div class="inline-flex items-center justify-center rounded-md bg-indigo-600 p-3 shadow-lg">
-                  <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                  </svg>
-                </div>
-                <h3 class="mt-8 text-lg font-medium tracking-tight text-gray-900">Customizable</h3>
-                <p class="mt-5 text-base text-gray-500">
-                  Easily customize your design with Tailwind's configuration and Rails' flexibility.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="pt-6">
-            <div class="flow-root rounded-lg bg-white px-6 pb-8">
-              <div class="-mt-6">
-                <div class="inline-flex items-center justify-center rounded-md bg-indigo-600 p-3 shadow-lg">
-                  <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h3 class="mt-8 text-lg font-medium tracking-tight text-gray-900">Production Ready</h3>
-                <p class="mt-5 text-base text-gray-500">
-                  Deploy with confidence using Rails' robust architecture and Tailwind's optimized CSS.
-                </p>
-              </div>
-            </div>
+          <div class="p-5">
+            <table class="w-full text-[14px]">
+              <tbody class="divide-y divide-[#E6E6E6]">
+                <tr>
+                  <td class="py-2 font-medium">Ruby</td>
+                  <td class="py-2 text-[#666666]"><%= RUBY_VERSION %></td>
+                </tr>
+                <tr>
+                  <td class="py-2 font-medium">Rails</td>
+                  <td class="py-2 text-[#666666]"><%= Rails.version %></td>
+                </tr>
+                <tr>
+                  <td class="py-2 font-medium">PostgreSQL</td>
+                  <td class="py-2 text-[#666666]"><%= ActiveRecord::Base.connection.select_value('SHOW server_version') rescue 'Not connected' %></td>
+                </tr>
+                <tr>
+                  <td class="py-2 font-medium">Puma</td>
+                  <td class="py-2 text-[#666666]"><%= Puma::Const::PUMA_VERSION rescue 'Not available' %></td>
+                </tr>
+                <tr>
+                  <td class="py-2 font-medium">Solid Cache</td>
+                  <td class="py-2 text-[#666666]"><%= SolidCache::VERSION rescue 'Not available' %></td>
+                </tr>
+                <tr>
+                  <td class="py-2 font-medium">Solid Queue</td>
+                  <td class="py-2 text-[#666666]"><%= SolidQueue::VERSION rescue 'Not available' %></td>
+                </tr>
+                <tr>
+                  <td class="py-2 font-medium">Environment</td>
+                  <td class="py-2 text-[#666666]"><%= Rails.env %></td>
+                </tr>
+                <tr>
+                  <td class="py-2 font-medium">Platform</td>
+                  <td class="py-2 text-[#666666]"><%= RUBY_PLATFORM %></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
