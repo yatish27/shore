@@ -1,0 +1,4 @@
+example_id                                   | status | run_time        |
+-------------------------------------------- | ------ | --------------- |
+./spec/models/granity/example_spec.rb[1:1:1] | passed | 0.01996 seconds |
+./spec/models/granity/example_spec.rb[1:2:1] | passed | 0.00633 seconds |
