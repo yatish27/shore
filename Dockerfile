@@ -51,7 +51,8 @@ RUN bundle install && \
 
 # Install node modules
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile 
+RUN yarn install --frozen-lockfile && \
+    rm -rf ~/.yarn
 
 # Copy application code
 COPY . .
