@@ -47,9 +47,9 @@ RUN bundle install && \
     bundle exec bootsnap precompile --gemfile
 
 # Install node modules
-COPY package.json package-lock.json ./
-RUN npm ci && \
-    rm -rf ~/.npm
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile && \
+    rm -rf ~/.yarn
 
 # Copy application code
 COPY . .
