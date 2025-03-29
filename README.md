@@ -29,7 +29,7 @@ Shore is a Ruby on Rails template with modern stack to start your new project.
 - **Vite Ruby**: Uses [Vite Ruby](https://vite-ruby.netlify.app) for asset management. It is based on [Vite.js](https://vitejs.dev). It replaces webpacker, jsbundling-rails, cssbundling-rails, importmaps and sprockets/propshaft.
 - **Node/Yarn**: Uses Node and Yarn for package management.
 - **Solid Queue**: Uses [Solid Queue](https://github.com/rails/solid_queue) for background processing.
-- **Minitest/FactoryBot**: Uses Rails' default testing library, minitest along with [Factorybot](https://github.com/thoughtbot/factory_bot).
+- **Rspec/FactoryBot**: Uses [RSpec](https://rspec.info/) and [Factorybot](https://github.com/thoughtbot/factory_bot).
 - **Rubocop**: Auto-formats Ruby code with [rubocop](https://rubocop.org).
 - **Prettier**: Auto-formats JavaScript and CSS code with [prettier](https://prettier.io).
 - **Github Actions**: Uses Github Actions for continuous integration and deployment.
