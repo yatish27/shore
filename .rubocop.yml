@@ -2,3 +2,6 @@ inherit_gem:
   standard: config/base.yml
 
 plugins: rubocop-rails
+
+AllCops:
+  SuggestExtensions: false
