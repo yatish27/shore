@@ -75,10 +75,7 @@ jobs:
           corepack prepare yarn@4.7.0 --activate
 
       - name: Install JavaScript dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Build JavaScript assets
-        run: yarn build
+        run: yarn install
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
