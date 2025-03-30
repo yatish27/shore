@@ -31,9 +31,11 @@
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 .button:hover {
   border-color: #646cff;
 }
+
 .button:focus,
 .button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -46,12 +48,15 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vite:hover {
   filter: drop-shadow(0 0 2em #e4023baa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -60,6 +65,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
