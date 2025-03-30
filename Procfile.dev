@@ -1,3 +1,4 @@
 vite: bin/vite dev
 web: bin/rails s -p 3000
 worker: bin/jobs start
+ssr: bin/vite ssr

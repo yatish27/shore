@@ -1,9 +1,9 @@
 {
   "name": "shore",
   "devDependencies": {
-    "@tailwindcss/vite": "^4.0.0",
+    "@tailwindcss/vite": "^4.0.17",
     "rollup": "^4.32.1",
-    "tailwindcss": "^4.0.0",
+    "tailwindcss": "^4.0.17",
     "vite": "^6.2.1",
     "vite-plugin-rails": "^0.5.0",
     "vite-plugin-ruby": "^5.1.0",
@@ -11,8 +11,20 @@
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "@hotwired/turbo-rails": "^8.0.12"
+    "@hotwired/turbo-rails": "^8.0.12",
+    "@inertiajs/react": "^2.0.5",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.2"
   },
   "version": "0.0.0",
-  "packageManager": "yarn@4.7.0+sha512.5a0afa1d4c1d844b3447ee3319633797bcd6385d9a44be07993ae52ff4facabccafb4af5dcd1c2f9a94ac113e5e9ff56f6130431905884414229e284e37bb7c9"
+  "packageManager": "yarn@4.8.0",
+  "scripts": {
+    "check": "tsc -p tsconfig.app.json && tsc -p tsconfig.node.json"
+  }
 }

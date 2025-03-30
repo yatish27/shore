@@ -1,9 +1,12 @@
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from "vite";
 import ViteRails from "vite-plugin-rails";
-import tailwindcss from "@tailwindcss/vite";
+
 
 export default defineConfig({
   plugins: [
+    react(),
     tailwindcss(),
     ViteRails({
       envVars: { RAILS_ENV: "development" },
@@ -15,4 +18,10 @@ export default defineConfig({
     }),
   ],
   build: { sourcemap: false },
+  server: {
+    host: true, // Listen on all addresses
+    hmr: {
+      host: 'localhost'
+    }
+  }
 });
