@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= content_for(:title) || "Shore" %></title>
+    <title inertia><%= content_for(:title) || "Shore" %></title>
     <meta charset="utf-8">
     <meta name="description" content="<%= content_for(:meta_description) || 'Build amazing web applications with Shore - featuring Ruby on Rails, Vite, and modern development tools.' %>">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -19,23 +19,15 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= vite_stylesheet_tag "application.css" %>
+    <%= vite_stylesheet_tag "application" %>
+    <%= vite_react_refresh_tag %>
     <%= vite_client_tag %>
-    <%= vite_javascript_tag 'application' %>
-    <!--
-      If using a TypeScript entrypoint file:
-        vite_typescript_tag 'application'
-
-      If using a .jsx or .tsx entrypoint, add the extension:
-        vite_javascript_tag 'application.jsx'
-
-      Visit the guide for more information: https://vite-ruby.netlify.app/guide/rails
-    -->
-
+    <%= inertia_ssr_head %>
   </head>
 
   <body>
     <%= yield %>
+    <%= vite_typescript_tag "inertia" %>
+    <%= vite_javascript_tag 'application' %>
   </body>
 </html>

@@ -93,13 +93,13 @@ Visit [http://localhost:3000](http://localhost:3000) to see the home page 🚀.
 Running all tests
 
 ```
-./bin/rails test:all
+./bin/rspec
 ```
 
-Running a single test
+Running a single spec
 
 ```
-./bin/rails test test/jobs/hello_world_job_test.rb
+./bin/rspec spec/system/root_spec.rb
 ```
 
 ## License
