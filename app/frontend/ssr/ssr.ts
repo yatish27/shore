@@ -8,13 +8,10 @@ interface ResolvedComponent {
   default: ReactNode & { layout?: (page: ReactNode) => ReactNode };
 }
 
-const appName = (import.meta.env.VITE_APP_NAME ?? "Rails") as string;
-
 createServer((page) =>
   createInertiaApp({
     page,
     render: ReactDOMServer.renderToString,
-    title: (title) => `${title} - ${appName}`,
     resolve: (name) => {
       const pages = import.meta.glob<ResolvedComponent>("../pages/**/*.tsx", {
         eager: true,

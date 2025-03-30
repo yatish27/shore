@@ -22,12 +22,12 @@
     <%= vite_stylesheet_tag "application" %>
     <%= vite_react_refresh_tag %>
     <%= vite_client_tag %>
+    <%= vite_typescript_tag "inertia" %>
+    <%= vite_javascript_tag 'application' %>
     <%= inertia_ssr_head %>
   </head>
 
   <body>
     <%= yield %>
-    <%= vite_typescript_tag "inertia" %>
-    <%= vite_javascript_tag 'application' %>
   </body>
 </html>
