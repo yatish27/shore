@@ -59,6 +59,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "inertia_rails", "~> 3.7"
+gem "inertia_rails", "~> 3.8"
 
 gem "js-routes", "~> 2.3"
