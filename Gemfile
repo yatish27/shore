@@ -43,7 +43,7 @@ group :development, :test do
   gem "rspec-rails", "~> 7.1"
   gem "rubocop", "~> 1.75"
   gem "rubocop-rails", "~> 2.31"
-  gem "rubocop-rspec", "~> 3.5"
+  gem "rubocop-rspec", "~> 3.6"
   gem "rubocop-rspec_rails", "~> 2.31"
 end
 
