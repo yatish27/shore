@@ -1,4 +1,5 @@
 default: &default
+  adapter: postgresql
   username: <%= ENV['POSTGRES_USERNAME'] || 'postgres' %>
   password: <%= ENV['POSTGRES_PASSWORD'] || 'postgres' %>
   encoding: unicode
