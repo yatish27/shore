@@ -66,12 +66,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .node-version
 
       - name: Enable Corepack and setup Yarn
         run: |
           corepack enable
-          corepack prepare yarn@4.7.0 --activate
+          corepack prepare yarn@4.9.0 --activate
 
       - name: Install JavaScript dependencies
         run: yarn install
