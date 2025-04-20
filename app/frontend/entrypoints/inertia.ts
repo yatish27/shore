@@ -1,12 +1,12 @@
-import { createInertiaApp } from "@inertiajs/react";
-import { createElement, ReactNode } from "react";
-import { createRoot, hydrateRoot } from "react-dom/client";
+import { createInertiaApp } from '@inertiajs/react'
+import { createElement, ReactNode } from 'react'
+import { createRoot } from 'react-dom/client'
 
 // Temporary type definition, until @inertiajs/react provides one
 type ResolvedComponent = {
-  default: ReactNode;
-  layout?: (page: ReactNode) => ReactNode;
-};
+  default: ReactNode
+  layout?: (page: ReactNode) => ReactNode
+}
 
 createInertiaApp({
   // Set default page title
@@ -20,12 +20,12 @@ createInertiaApp({
   // progress: false,
 
   resolve: (name) => {
-    const pages = import.meta.glob<ResolvedComponent>("../pages/**/*.tsx", {
+    const pages = import.meta.glob<ResolvedComponent>('../pages/**/*.tsx', {
       eager: true,
-    });
-    const page = pages[`../pages/${name}.tsx`];
+    })
+    const page = pages[`../pages/${name}.tsx`]
     if (!page) {
-      console.error(`Missing Inertia page component: '${name}.tsx'`);
+      console.error(`Missing Inertia page component: '${name}.tsx'`)
     }
 
     // To use a default layout, import the Layout component
@@ -34,23 +34,18 @@ createInertiaApp({
     //
     // page.default.layout ||= (page) => createElement(Layout, null, page)
 
-    return page;
+    return page
   },
 
   setup({ el, App, props }) {
     if (el) {
-      // Uncomment the following to enable SSR hydration:
-      if (el.hasChildNodes()) {
-        hydrateRoot(el, createElement(App, props));
-        return;
-      }
-      createRoot(el).render(createElement(App, props));
+      createRoot(el).render(createElement(App, props))
     } else {
       console.error(
-        "Missing root element.\n\n" +
-          "If you see this error, it probably means you load Inertia.js on non-Inertia pages.\n" +
-          'Consider moving <%= vite_typescript_tag "inertia" %> to the Inertia-specific layout instead.'
-      );
+        'Missing root element.\n\n' +
+          'If you see this error, it probably means you load Inertia.js on non-Inertia pages.\n' +
+          'Consider moving <%= vite_typescript_tag "inertia" %> to the Inertia-specific layout instead.',
+      )
     }
   },
-});
+})
