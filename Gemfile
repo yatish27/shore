@@ -21,7 +21,7 @@ group :development, :test do
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
-  gem "rspec-rails", "~> 7.1"
+  gem "rspec-rails", "~> 8.0"
   gem "standard", "~> 1.49"
   gem "parallel_tests", "~> 5.1"
   gem "capybara", "~> 3.40"
