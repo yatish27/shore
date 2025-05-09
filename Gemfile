@@ -23,7 +23,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
   gem "rspec-rails", "~> 7.1"
   gem "standard", "~> 1.49"
-  gem "parallel_tests", "~> 5.1"
+  gem "parallel_tests", "~> 5.2"
   gem "capybara", "~> 3.40"
   gem "selenium-webdriver", "~> 4.31"
 end
