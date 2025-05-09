@@ -192,7 +192,7 @@ GEM
       racc (~> 1.4)
     ostruct (0.6.1)
     parallel (1.27.0)
-    parallel_tests (5.1.0)
+    parallel_tests (5.2.0)
       parallel
     parser (3.3.8.0)
       ast (~> 2.4.1)
@@ -410,7 +410,7 @@ DEPENDENCIES
   jbuilder
   js-routes (~> 2.3)
   kamal
-  parallel_tests (~> 5.1)
+  parallel_tests (~> 5.2)
   pg (~> 1.1)
   propshaft
   puma (>= 6.0)
