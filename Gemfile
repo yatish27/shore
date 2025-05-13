@@ -22,7 +22,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
   gem "rspec-rails", "~> 8.0"
-  gem "standard", "~> 1.49"
+  gem "standard", "~> 1.50"
   gem "parallel_tests", "~> 5.2"
   gem "capybara", "~> 3.40"
   gem "selenium-webdriver", "~> 4.32"
