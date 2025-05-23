@@ -25,7 +25,7 @@ group :development, :test do
   gem "standard", "~> 1.50"
   gem "parallel_tests", "~> 5.2"
   gem "capybara", "~> 3.40"
-  gem "selenium-webdriver", "~> 4.32"
+  gem "selenium-webdriver", "~> 4.33"
 end
 
 group :development do
