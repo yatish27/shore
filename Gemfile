@@ -14,7 +14,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 gem "vite_rails", "~> 3.0"
 gem "dotenv-rails", "~> 3.1"
-gem "inertia_rails", "~> 3.8"
+gem "inertia_rails", "~> 3.9"
 gem "js-routes", "~> 2.3"
 
 group :development, :test do
