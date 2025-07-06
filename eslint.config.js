@@ -3,7 +3,7 @@ import prettierConfig from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
 import pluginReact from "eslint-plugin-react";
 import globals from "globals";
-import tseslint from "typescript-eslint";
+import tseslint from "@typescript-eslint/eslint-plugin";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
