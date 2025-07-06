@@ -41,6 +41,8 @@ group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
   gem "rspec-rails", "~> 8.0"
+  gem "capybara", "~> 3.39"
+  gem "selenium-webdriver", "~> 4.15"
   gem "standard", "~> 1.50"
   gem "rubocop-rails", "~> 2.32"
 end
