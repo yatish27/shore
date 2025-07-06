@@ -35,6 +35,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Install deploy gems
+        run: bundle install
+
       - name: Deploy
         env:
           VERSION: ${{ github.sha }}
