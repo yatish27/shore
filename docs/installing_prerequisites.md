@@ -13,7 +13,7 @@ brew install rbenv ruby-build
 2. Install ruby with the version in [.ruby-version](./../.ruby-version)
 
 ```
-rbenv install 3.4.3
+rbenv install 3.4.4
 ```
 
 3. Check the version
@@ -23,7 +23,7 @@ ruby -v
 ```
 
 ```
-ruby 3.4.3 (2025-04-14 revision d0b7e5b6a0) +YJIT +PRISM [arm64-darwin24]
+ruby 3.4.4 (2025-04-14 revision d0b7e5b6a0) +YJIT +PRISM [arm64-darwin24]
 ```
 
 ## PostgreSQL
