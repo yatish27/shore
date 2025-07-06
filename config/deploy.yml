@@ -8,10 +8,10 @@ image: yatish27/shore
 # Deploy to these servers.
 servers:
   web:
-    - 147.182.240.116
+    - 138.68.103.18
   job:
     hosts:
-      - 147.182.240.116
+      - 138.68.103.18
     cmd: bin/jobs
 
 # Enable SSL auto certification via Let's Encrypt and allow for multiple apps on a single web server.
@@ -99,7 +99,7 @@ builder:
 accessories:
   db:
     image: postgres:17
-    host: 147.182.240.116 # FIXME: The IP address of the server you can SSH into.
+    host: 138.68.103.18 # FIXME: The IP address of the server you can SSH into.
     port: "127.0.0.1:5432:5432" # Not exposing to Internet.
     env:
       clear:
