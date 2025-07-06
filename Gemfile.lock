@@ -257,7 +257,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.4)
-    rubocop (1.77.0)
+    rubocop (1.75.8)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -265,7 +265,7 @@ GEM
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 2.9.3, < 3.0)
-      rubocop-ast (>= 1.45.1, < 2.0)
+      rubocop-ast (>= 1.44.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
     rubocop-ast (1.45.1)
@@ -281,10 +281,6 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.44.0, < 2.0)
-    rubocop-rails-omakase (1.1.0)
-      rubocop (>= 1.72)
-      rubocop-performance (>= 1.24)
-      rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
     solid_cable (3.0.11)
@@ -310,20 +306,18 @@ GEM
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
       ostruct
-    standard (1.35.0.1)
+    standard (1.50.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
-      rubocop (~> 1.62)
+      rubocop (~> 1.75.5)
       standard-custom (~> 1.0.0)
-      standard-performance (~> 1.3)
+      standard-performance (~> 1.8)
     standard-custom (1.0.2)
       lint_roller (~> 1.0)
       rubocop (~> 1.50)
     standard-performance (1.8.0)
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.25.0)
-    standardrb (1.0.1)
-      standard
     stringio (3.1.7)
     thor (1.3.2)
     thruster (0.1.14)
@@ -373,7 +367,6 @@ DEPENDENCIES
   bootsnap
   brakeman
   debug
-  dotenv (~> 3.1)
   jbuilder
   kamal
   pg (~> 1.1)
@@ -381,12 +374,11 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 8.0.2)
   rspec-rails (~> 8.0)
-  rubocop-rails-omakase
+  rubocop-rails (~> 2.32)
   solid_cable
   solid_cache
   solid_queue
-  standard (~> 1.35)
-  standardrb (~> 1.0)
+  standard (~> 1.50)
   thruster
   tzinfo-data
   vite_rails (~> 3.0)
