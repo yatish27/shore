@@ -19,7 +19,7 @@ Rails.application.configure do
   config.public_file_server.headers = {"cache-control" => "public, max-age=3600"}
 
   # Show full error reports.
-  config.consider_all_requests_local = truse
+  config.consider_all_requests_local = true
   config.cache_store = :null_store
 
   # Render exception templates for rescuable exceptions and raise for other exceptions.
