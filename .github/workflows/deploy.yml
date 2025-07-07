@@ -10,9 +10,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # if: false # deploy is disabled by default
+    if: false # deploy is disabled by default
     # uncomment to enable:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     timeout-minutes: 20
     env:
       DOCKER_BUILDKIT: 1
