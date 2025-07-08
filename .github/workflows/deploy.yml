@@ -16,6 +16,7 @@ jobs:
     timeout-minutes: 20
     env:
       DOCKER_BUILDKIT: 1
+      RAILS_ENV: production
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
