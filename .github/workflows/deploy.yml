@@ -35,11 +35,8 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Configure bundler for deploy gems
-        run: bundle config set with 'deploy'
-
-      - name: Install deploy gems
-        run: bundle install
+      - name: Install Kamal gem
+        run: gem install kamal
 
       - name: Verify Kamal installation
         run: bundle exec kamal version
