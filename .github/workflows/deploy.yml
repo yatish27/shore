@@ -10,13 +10,12 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: false # deploy is disabled by default
+    # if: false # deploy is disabled by default
     # uncomment to enable:
-    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     timeout-minutes: 20
     env:
       DOCKER_BUILDKIT: 1
-      BUNDLE_ONLY: deploy
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -35,8 +34,14 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Configure bundler for deploy gems
+        run: bundle config set with 'deploy'
+
       - name: Install deploy gems
         run: bundle install
+
+      - name: Verify Kamal installation
+        run: bundle exec kamal version
 
       - name: Deploy
         env:
