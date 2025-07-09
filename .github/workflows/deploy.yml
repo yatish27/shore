@@ -46,4 +46,6 @@ jobs:
           VERSION: ${{ github.sha }}
           KAMAL_REGISTRY_PASSWORD: ${{ secrets.KAMAL_REGISTRY_PASSWORD }}
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          SHORE_DATABASE_PASSWORD: ${{ secrets.SHORE_DATABASE_PASSWORD }}
         run: bundle exec kamal deploy --version=$VERSION
