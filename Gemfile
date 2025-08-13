@@ -44,7 +44,7 @@ group :development, :test do
   gem "capybara", "~> 3.39"
   gem "selenium-webdriver", "~> 4.15"
   gem "standard", "~> 1.50"
-  gem "rubocop-rails", "~> 2.32"
+  gem "rubocop-rails", "~> 2.33"
 end
 
 group :development do
