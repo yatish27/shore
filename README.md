@@ -22,7 +22,7 @@ Shore is a Ruby on Rails template with modern stack to start your new project.
 
 ## Features
 
-- **Ruby**: Ruby 3.4.4
+- **Ruby**: Ruby 3.4.6
 - **Rails**: [Rails 8](https://rubyonrails.org)
 - **PostgreSQL**: [PostgresSQL 17](https://www.postgresql.org)
 - **Tailwind CSS**: Uses [Tailwind CSS v4](https://tailwindcss.com) for styling.

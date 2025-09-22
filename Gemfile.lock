@@ -400,7 +400,7 @@ DEPENDENCIES
   kamal
   pg (~> 1.1)
   propshaft
-  puma (>= 5.0)
+  puma (~> 7.0.3)
   rails (~> 8.0.2)
   rspec-rails (~> 8.0)
   rubocop-rails (~> 2.32)
