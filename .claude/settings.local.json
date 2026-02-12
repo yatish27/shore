@@ -8,7 +8,8 @@
       "Bash(gh search:*)",
       "Bash(find:*)",
       "Bash(xargs:*)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(test:*)"
     ]
   }
 }
