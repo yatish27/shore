@@ -1,23 +1,13 @@
 #!/usr/bin/env sh
 
-export PORT="${PORT:-3000}"
-
-if command -v overmind 1> /dev/null 2>&1
-then
-  overmind start -f Procfile.dev "$@"
-  exit $?
-fi
-
-if command -v hivemind 1> /dev/null 2>&1
-then
-  echo "Hivemind is installed. Running the application with Hivemind..."
-  exec hivemind Procfile.dev "$@"
-  exit $?
-fi
-
 if gem list --no-installed --exact --silent foreman; then
   echo "Installing foreman..."
   gem install foreman
 fi
 
-foreman start -f Procfile.dev "$@"
+# Default to port 3000 if not specified
+export PORT="${PORT:-3000}"
+
+test -e public/assets && bin/rails assets:clobber
+
+exec foreman start -f Procfile.dev --env /dev/null "$@"

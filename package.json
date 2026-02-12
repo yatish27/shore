@@ -1,34 +1,20 @@
 {
+  "name": "app",
   "private": true,
-  "type": "module",
-  "devDependencies": {
-    "@tailwindcss/vite": "^4.1.11",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "eslint": "^9.30.1",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-react": "^7.37.5",
-    "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.6.13",
-    "rollup": "^4.44.2",
-    "tailwindcss": "^4.1.11",
-    "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.2",
-    "vite-plugin-rails": "^0.5.0",
-    "vite-plugin-ruby": "^5.1.1"
-  },
   "scripts": {
-    "check": "tsc -p tsconfig.app.json && tsc -p tsconfig.node.json",
-    "lint": "eslint app/frontend --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "npm run lint -- --fix",
-    "format": "prettier --check 'app/frontend/**/*.{ts,tsx,js}'",
-    "format:fix": "npm run format -- --write"
+    "build": "bun bun.config.js",
+    "build:css": "bunx @tailwindcss/cli -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "^4.6.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "typescript": "^5.8.3"
+    "@fontsource-variable/inter": "^5.2.8",
+    "@inertiajs/react": "^2.3.14",
+    "@tailwindcss/cli": "^4.1.18",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "clsx": "^2.1.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss": "^4.1.18"
   }
 }

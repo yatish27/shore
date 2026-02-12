@@ -1,3 +1,4 @@
-vite: bin/vite dev
-web: bin/rails s -p 3000
-worker: bin/jobs start
+web: env RUBY_DEBUG_OPEN=true bin/rails server
+js: bun run build --watch
+css: bun run build:css --watch
+jobs: bin/jobs

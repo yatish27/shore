@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <title inertia><%= content_for(:title) || "Shore" %></title>
-    <meta charset="utf-8">
-    <meta name="description" content="<%= content_for(:meta_description) || 'Build amazing web applications with Shore - featuring Ruby on Rails, Vite, and modern development tools.' %>">
+    <title><%= content_for(:title) || "Shore" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Shore">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -19,12 +18,11 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%= vite_stylesheet_tag "application" %>
-    <%= vite_client_tag %>
-    <%= vite_typescript_tag "application" %>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="font-sans antialiased">
     <%= yield %>
   </body>
 </html>

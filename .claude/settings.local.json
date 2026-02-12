@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh api:*)",
+      "WebFetch(domain:inertia-rails.dev)",
+      "WebFetch(domain:github.com)",
+      "WebSearch",
+      "Bash(gh search:*)",
+      "Bash(find:*)",
+      "Bash(xargs:*)",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ]
+  }
+}
