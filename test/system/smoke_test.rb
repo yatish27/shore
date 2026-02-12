@@ -5,9 +5,9 @@ class SmokeTest < ApplicationSystemTestCase
     visit root_url
 
     assert_selector "h1", text: "Shore"
-    assert_text "ruby"
-    assert_text "rails"
-    assert_text "postgresql"
+    assert_text "Ruby"
+    assert_text "Rails"
+    assert_text "Postgresql"
   end
 
   test "health check returns successfully" do
