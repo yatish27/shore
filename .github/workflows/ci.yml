@@ -128,6 +128,12 @@ jobs:
         with:
           bun-version: 1.3.6
 
+      - name: Install frontend dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Precompile assets
+        run: bin/rails assets:precompile
+
       - name: Run System Tests
         env:
           RAILS_ENV: test

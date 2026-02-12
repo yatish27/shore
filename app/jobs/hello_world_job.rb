@@ -13,5 +13,6 @@ class HelloWorldJob < ApplicationJob
     }
 
     Rails.logger.info(log_data.to_json)
+    $stdout.puts "[HelloWorldJob] #{log_data.to_json}"
   end
 end
