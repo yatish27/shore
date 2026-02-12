@@ -132,7 +132,7 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Precompile assets
-        run: RAILS_ENV=production bin/rails assets:precompile
+        run: SECRET_KEY_BASE=dummy RAILS_ENV=production bin/rails assets:precompile
 
       - name: Run System Tests
         env:
