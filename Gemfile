@@ -16,7 +16,7 @@ gem "solid_cable"
 gem "solid_cache"
 gem "solid_queue"
 gem "thruster", require: false
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data", platforms: %i[windows jruby]
 
 # Features
 gem "image_processing", "~> 1.2"
@@ -25,8 +25,9 @@ gem "inertia_rails"
 group :development, :test do
   gem "brakeman", require: false
   gem "bundler-audit", require: false
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-  gem "rubocop-rails-omakase", require: false
+  gem "debug", platforms: %i[mri windows], require: "debug/prelude"
+  gem "standard", ">= 1.35.1", require: false
+  gem "standard-rails", require: false
 end
 
 group :development do

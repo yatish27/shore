@@ -20,7 +20,7 @@ Rails.application.configure do
   if Rails.root.join("tmp/caching-dev.txt").exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
-    config.public_file_server.headers = { "cache-control" => "public, max-age=#{2.days.to_i}" }
+    config.public_file_server.headers = {"cache-control" => "public, max-age=#{2.days.to_i}"}
   else
     config.action_controller.perform_caching = false
   end
@@ -38,7 +38,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Set localhost to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.default_url_options = {host: "localhost", port: 3000}
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -54,7 +54,7 @@ Rails.application.configure do
 
   # Use Solid Queue as the Active Job backend.
   config.active_job.queue_adapter = :solid_queue
-  config.solid_queue.connects_to = { database: { writing: :queue } }
+  config.solid_queue.connects_to = {database: {writing: :queue}}
 
   # Highlight code that enqueued background job in logs.
   config.active_job.verbose_enqueue_logs = true

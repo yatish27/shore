@@ -20,8 +20,8 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   end
 
   if ENV["SYSTEM_TESTS_BROWSER"]
-    driven_by :chrome, screen_size: [ 1200, 1000 ]
+    driven_by :chrome, screen_size: [1200, 1000]
   else
-    driven_by :chrome_headless, screen_size: [ 1200, 1000 ]
+    driven_by :chrome_headless, screen_size: [1200, 1000]
   end
 end

@@ -5,16 +5,21 @@
         <h1 class="text-4xl leading-tight tracking-tight font-bold">
           Shore
         </h1>
+
         <p class="text-sm leading-relaxed text-gray-600">
-          A modern Ruby on Rails starter kit with Vite and Tailwind CSS integration. Build robust web applications with confidence.
+          A modern Ruby on Rails starter kit with Vite and Tailwind CSS
+          integration. Build robust web applications with confidence.
         </p>
       </div>
 
       <div class="flex flex-col gap-6">
         <div class="rounded-lg border border-gray-200 bg-white">
           <div class="border-b border-gray-200 px-5 py-4">
-            <h2 class="text-xs font-medium text-gray-600 uppercase tracking-wider">System Information</h2>
+            <h2 class="text-xs font-medium text-gray-600 uppercase tracking-wider">
+              System Information
+            </h2>
           </div>
+
           <div class="p-5">
             <table class="w-full text-sm">
               <tbody class="divide-y divide-gray-200">
@@ -22,30 +27,49 @@
                   <td class="py-2 font-medium">Ruby</td>
                   <td class="py-2 text-gray-600"><%= RUBY_VERSION %></td>
                 </tr>
+
                 <tr>
                   <td class="py-2 font-medium">Rails</td>
                   <td class="py-2 text-gray-600"><%= Rails.version %></td>
                 </tr>
+
                 <tr>
                   <td class="py-2 font-medium">PostgreSQL</td>
-                  <td class="py-2 text-gray-600"><%= ActiveRecord::Base.connection.select_value('SHOW server_version') rescue 'Not connected' %></td>
+
+                  <td class="py-2 text-gray-600">
+                    <%= ActiveRecord::Base.connection.select_value('SHOW server_version') rescue 'Not connected' %>
+                  </td>
                 </tr>
+
                 <tr>
                   <td class="py-2 font-medium">Puma</td>
-                  <td class="py-2 text-gray-600"><%= Puma::Const::PUMA_VERSION rescue 'Not available' %></td>
+
+                  <td class="py-2 text-gray-600">
+                    <%= Puma::Const::PUMA_VERSION rescue 'Not available' %>
+                  </td>
                 </tr>
+
                 <tr>
                   <td class="py-2 font-medium">Solid Cache</td>
-                  <td class="py-2 text-gray-600"><%= SolidCache::VERSION rescue 'Not available' %></td>
+
+                  <td class="py-2 text-gray-600">
+                    <%= SolidCache::VERSION rescue 'Not available' %>
+                  </td>
                 </tr>
+
                 <tr>
                   <td class="py-2 font-medium">Solid Queue</td>
-                  <td class="py-2 text-gray-600"><%= SolidQueue::VERSION rescue 'Not available' %></td>
+
+                  <td class="py-2 text-gray-600">
+                    <%= SolidQueue::VERSION rescue 'Not available' %>
+                  </td>
                 </tr>
+
                 <tr>
                   <td class="py-2 font-medium">Environment</td>
                   <td class="py-2 text-gray-600"><%= Rails.env %></td>
                 </tr>
+
                 <tr>
                   <td class="py-2 font-medium">Platform</td>
                   <td class="py-2 text-gray-600"><%= RUBY_PLATFORM %></td>

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title><%= content_for(:title) || "Shore" %></title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Shore">
     <meta name="mobile-web-app-capable" content="yes">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,7 +20,5 @@
     <%= javascript_include_tag "inertia", defer: true %>
   </head>
 
-  <body class="font-sans antialiased">
-    <%= yield %>
-  </body>
+  <body class="font-sans antialiased"><%= yield %></body>
 </html>
