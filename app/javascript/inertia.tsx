@@ -2,9 +2,15 @@ import { createInertiaApp } from "@inertiajs/react";
 import { createRoot } from "react-dom/client";
 
 import Home from "@/pages/Home";
+import PostsIndex from "@/pages/Posts/Index";
+import PostsShow from "@/pages/Posts/Show";
+import PostsNew from "@/pages/Posts/New";
 
 const pages: Record<string, React.ComponentType<never>> = {
   Home,
+  "Posts/Index": PostsIndex,
+  "Posts/Show": PostsShow,
+  "Posts/New": PostsNew,
 };
 
 createInertiaApp({
