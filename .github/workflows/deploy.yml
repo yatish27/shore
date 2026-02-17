@@ -58,15 +58,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build-and-push
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
-
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
       - name: Deploy to Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: railway up --service shore --detach
+        run: railway redeploy --service shore --yes
