@@ -16,14 +16,13 @@ Shore is a Ruby on Rails template with a modern stack to start your next project
 - **Ruby** — [Ruby 4.0.1](https://www.ruby-lang.org)
 - **Rails** — [Rails 8.1](https://rubyonrails.org)
 - **PostgreSQL** — [PostgreSQL 18](https://www.postgresql.org)
-- **React + Inertia.js** — [Inertia Rails](https://inertia-rails.dev) with [React 19](https://react.dev)
+- **React + Inertia.js** — [Inertia Rails](https://inertia-rails.dev)
 - **Tailwind CSS** — [Tailwind CSS v4](https://tailwindcss.com)
-- **Bun** — [Bun](https://bun.sh) for package management and bundling
+- **Bun** — [Bun](https://bun.sh) for js package management and asset bundling
 - **Solid Queue** — [Solid Queue](https://github.com/rails/solid_queue) for background jobs
 - **Solid Cache** — [Solid Cache](https://github.com/rails/solid_cache) for caching
 - **Solid Cable** — [Solid Cable](https://github.com/rails/solid_cable) for WebSockets
-- **Kamal** — [Kamal](https://kamal-deploy.org) for deployment
-- **RuboCop** — [RuboCop](https://rubocop.org) with Rails Omakase style
+- **RuboCop** — [RuboCop](https://rubocop.org) with Standardrb config
 - **GitHub Actions** — CI/CD with security scanning, linting, and tests
 
 ## Getting Started

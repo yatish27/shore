@@ -8,14 +8,14 @@ Shore is a web application built with Rails 8.1 and React 19 via Inertia.js.
 
 ## Development Commands
 
-**Starting Development:**
+### Starting Development
 
 ```
 bin/setup    # Install deps, prepare all databases
 bin/dev      # Starts Rails server (port 3000), Bun JS watcher, Tailwind CSS watcher, Solid Queue
 ```
 
-**Database Commands:**
+### Database Commands
 
 - `bin/rails db:prepare` — Create and migrate all databases
 - `bin/rails db:migrate` — Run migrations
@@ -23,7 +23,7 @@ bin/dev      # Starts Rails server (port 3000), Bun JS watcher, Tailwind CSS wat
 - `bin/rails db:seed` — Load seed data
 - `bin/rails db:reset` — Drop, create, migrate, seed
 
-**Testing & Code Quality:**
+### Testing & Code Quality
 
 - `bin/rails test` — Run all unit/integration tests
 - `bin/rails test:system` — Run system tests (Capybara + Selenium)
@@ -34,14 +34,14 @@ bin/dev      # Starts Rails server (port 3000), Bun JS watcher, Tailwind CSS wat
 - `bin/brakeman --no-pager` — Security analysis
 - `bin/bundler-audit` — Scan for vulnerable gems
 
-**Build Commands:**
+### Build Commands
 
 - `bun run build` — Build JavaScript
 - `bun run build:css` — Build CSS
 
 ## Architecture Overview
 
-**Tech Stack:**
+### Tech Stack
 
 - Rails 8.1 with PostgreSQL (multi-database)
 - Inertia.js 2 with React 19
@@ -51,7 +51,8 @@ bin/dev      # Starts Rails server (port 3000), Bun JS watcher, Tailwind CSS wat
 - Solid Queue, Solid Cache, Solid Cable (no Redis)
 - Minitest + Fixtures +Capybara (testing)
 
-**Multi-Database Setup:**
+### Multi-Database Setup
+
 The app uses four PostgreSQL databases configured in `config/database.yml`:
 
 - `primary` — Application data
@@ -61,18 +62,17 @@ The app uses four PostgreSQL databases configured in `config/database.yml`:
 
 All four are created/migrated together by `bin/rails db:prepare`. CI uses `POSTGRES_PASSWORD` env var for auth (not `DATABASE_URL`).
 
-**Key Architectural Patterns:**
+### Key Architectural Patterns
 
-1. **Inertia.js Pattern:** Controllers render Inertia responses (`render inertia: "PageName", props: { ... }`) instead of JSON APIs or ERB views.
-2. **Frontend Structure:** Pages in `app/javascript/pages/`, shared components in `app/javascript/components/`, utilities in `app/javascript/lib/`. Path alias `@/` maps to `app/javascript/`.
-3. **Page Registry:** New Inertia pages must be added to the `pages` map in `app/javascript/inertia.tsx`.
-4. **No Redis:** Background jobs, caching, and WebSockets all use PostgreSQL via the Solid gems.
-5. **Database Architecture**:
-
-- PostgreSQL
-- UUID primary keys using pgcrypto extension
-- JSONB columns for flexible metadata storage
-- Encrypted fields for sensitive data (OAuth tokens)
+- **Inertia.js Pattern:** Controllers render Inertia responses (`render inertia: "PageName", props: { ... }`) instead of JSON APIs or ERB views.
+- **Frontend Structure:** Pages in `app/javascript/pages/`, shared components in `app/javascript/components/`, utilities in `app/javascript/lib/`. Path alias `@/` maps to `app/javascript/`.
+- **Page Registry:** New Inertia pages must be added to the `pages` map in `app/javascript/inertia.tsx`.
+- **No Redis:** Background jobs, caching, and WebSockets all use PostgreSQL via the Solid gems.
+- **Database Architecture**
+  - PostgreSQL
+  - UUID primary keys using pgcrypto extension
+  - JSONB columns for flexible metadata storage
+  - Encrypted fields for sensitive data (OAuth tokens)
 
 ## Project Layout
 
@@ -174,7 +174,7 @@ end
 
 When code examples, setup or configuration steps, or library/API documentation are requested, use the Context7 mcp server to get the information.
 
-# Analysis Process:
+## Analysis Process:
 
 - Compare new code with existing rules
 - Identify patterns that should be standardized
@@ -182,19 +182,19 @@ When code examples, setup or configuration steps, or library/API documentation a
 - Check for consistent error handling patterns
 - Monitor test patterns and coverage
 
-# How to ensure Always Works™ implementation
+## How to ensure Always Works™ implementation
 
 Please ensure your implementation Always Works™ for: $ARGUMENTS.
 
 Follow this systematic approach:
 
-## Core Philosophy
+### Core Philosophy
 
 - "Should work" ≠ "does work" - Pattern matching isn't enough
 - I'm not paid to write code, I'm paid to solve problems
 - Untested code is just a guess, not a solution
 
-# The 30-Second Reality Check - Must answer YES to ALL:
+### The 30-Second Reality Check - Must answer YES to ALL:
 
 - Did I run/build the code?
 - Did I trigger the exact feature I changed?
@@ -202,14 +202,14 @@ Follow this systematic approach:
 - Did I check for error messages?
 - Would I bet $100 this works?
 
-# Phrases to Avoid:
+### Phrases to Avoid:
 
 - "This should work now"
 - "I've fixed the issue" (especially 2nd+ time)
 - "Try it now" (without trying it myself)
 - "The logic is correct so..."
 
-# Specific Test Requirements:
+### Specific Test Requirements:
 
 - UI Changes: Actually click the button/link/form
 - API Changes: Make the actual API call
@@ -217,11 +217,11 @@ Follow this systematic approach:
 - Logic Changes: Run the specific scenario
 - Config Changes: Restart and verify it loads
 
-# The Embarrassment Test:
+### The Embarrassment Test:
 
 "If the user records trying this and it fails, will I feel embarrassed to see his face?"
 
-# Time Reality:
+### Time Reality:
 
 - Time saved skipping tests: 30 seconds
 - Time wasted when it doesn't work: 30 minutes

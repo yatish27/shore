@@ -9,7 +9,10 @@
       "Bash(find:*)",
       "Bash(xargs:*)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh run view:*)"
     ]
   }
 }
