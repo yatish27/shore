@@ -1,4 +1,13 @@
 import { Link, router } from "@inertiajs/react";
+import { ArrowLeft, Trash2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface Post {
   id: string;
@@ -20,43 +29,42 @@ export default function Show({ post }: ShowProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <div className="max-w-3xl mx-auto px-4 py-12">
         <div className="mb-6">
-          <Link
-            href="/posts"
-            className="text-sm text-indigo-600 hover:text-indigo-800 transition-colors"
-          >
-            &larr; Back to Posts
-          </Link>
+          <Button variant="ghost" size="sm" asChild>
+            <Link href="/posts">
+              <ArrowLeft />
+              Back to Posts
+            </Link>
+          </Button>
         </div>
 
-        <article className="bg-white rounded-lg shadow p-8">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">
-            {post.title}
-          </h1>
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-2xl">{post.title}</CardTitle>
+            <time className="text-xs text-muted-foreground">
+              {new Date(post.created_at).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+          </CardHeader>
 
-          <time className="block text-xs text-gray-400 mb-6">
-            {new Date(post.created_at).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </time>
+          <CardContent>
+            <div className="text-foreground leading-relaxed whitespace-pre-wrap">
+              {post.body}
+            </div>
+          </CardContent>
 
-          <div className="prose prose-gray max-w-none text-gray-700 whitespace-pre-wrap mb-8">
-            {post.body}
-          </div>
-
-          <div className="pt-6 border-t border-gray-100">
-            <button
-              onClick={handleDelete}
-              className="inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors"
-            >
+          <CardFooter className="border-t pt-6">
+            <Button variant="destructive" size="sm" onClick={handleDelete}>
+              <Trash2 />
               Delete
-            </button>
-          </div>
-        </article>
+            </Button>
+          </CardFooter>
+        </Card>
       </div>
     </div>
   );
