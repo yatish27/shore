@@ -188,7 +188,6 @@ When code examples, setup or configuration steps, or library/API documentation a
 - Always use minitest
 - All React components and views should be TSX
 - Ask lots of clarifying questions when planning. The more the better. Make extensive use of AskUserQuestionTool to gather requirements and specifications. You can't ask too many questions.
-- Do not use Rails "solid\_\*" components/systems
 - Use Playwright to regularly verify E2E functionality
 - When something new is added that will need some type of setup, ensure it's added to @README.md
 
