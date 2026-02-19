@@ -49,7 +49,7 @@ bin/dev      # Starts Rails server (port 3000), Bun JS watcher, Tailwind CSS wat
 - Tailwind CSS 4
 - Propshaft (asset pipeline)
 - Solid Queue, Solid Cache, Solid Cable (no Redis)
-- Minitest + Fixtures +Capybara (testing)
+- Minitest + Fixtures + Capybara (testing)
 
 ### Multi-Database Setup
 
@@ -159,7 +159,6 @@ end
 ## Code Maintenance
 
 - Run `bundle exec rubocop -a` after significant code changes
-- Use `.rubocop.yml` for style configuration
 - Security scanning with `bundle exec brakeman`
 
 ## Database Schema Notes
@@ -182,53 +181,6 @@ When code examples, setup or configuration steps, or library/API documentation a
 - Check for consistent error handling patterns
 - Monitor test patterns and coverage
 
-## How to ensure Always Works™ implementation
-
-Please ensure your implementation Always Works™ for: $ARGUMENTS.
-
-Follow this systematic approach:
-
-### Core Philosophy
-
-- "Should work" ≠ "does work" - Pattern matching isn't enough
-- I'm not paid to write code, I'm paid to solve problems
-- Untested code is just a guess, not a solution
-
-### The 30-Second Reality Check - Must answer YES to ALL:
-
-- Did I run/build the code?
-- Did I trigger the exact feature I changed?
-- Did I see the expected result with my own observation (including GUI)?
-- Did I check for error messages?
-- Would I bet $100 this works?
-
-### Phrases to Avoid:
-
-- "This should work now"
-- "I've fixed the issue" (especially 2nd+ time)
-- "Try it now" (without trying it myself)
-- "The logic is correct so..."
-
-### Specific Test Requirements:
-
-- UI Changes: Actually click the button/link/form
-- API Changes: Make the actual API call
-- Data Changes: Query the database
-- Logic Changes: Run the specific scenario
-- Config Changes: Restart and verify it loads
-
-### The Embarrassment Test:
-
-"If the user records trying this and it fails, will I feel embarrassed to see his face?"
-
-### Time Reality:
-
-- Time saved skipping tests: 30 seconds
-- Time wasted when it doesn't work: 30 minutes
-- User trust lost: Immeasurable
-
-A user describing a bug for the third time isn't thinking "this AI is trying hard" - they're thinking "why am I wasting time with this incompetent tool?"
-
 ## Code Guidelines
 
 - Always use Tailwind classes instead of inline styles
@@ -239,33 +191,6 @@ A user describing a bug for the third time isn't thinking "this AI is trying har
 - Do not use Rails "solid\_\*" components/systems
 - Use Playwright to regularly verify E2E functionality
 - When something new is added that will need some type of setup, ensure it's added to @README.md
-
-## Landing the Plane (Session Completion)
-
-**When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until `git push` succeeds.
-
-**MANDATORY WORKFLOW:**
-
-1. **File issues for remaining work** - Create issues for anything that needs follow-up
-2. **Run quality gates** (if code changed) - Tests, linters, builds
-3. **Update issue status** - Close finished work, update in-progress items
-4. **PUSH TO REMOTE** - This is MANDATORY:
-   ```bash
-   git pull --rebase
-   bd sync
-   git push
-   git status  # MUST show "up to date with origin"
-   ```
-5. **Clean up** - Clear stashes, prune remote branches
-6. **Verify** - All changes committed AND pushed
-7. **Hand off** - Provide context for next session
-
-**CRITICAL RULES:**
-
-- Work is NOT complete until `git push` succeeds
-- NEVER stop before pushing - that leaves work stranded locally
-- NEVER say "ready to push when you are" - YOU must push
-- If push fails, resolve and retry until it succeeds
 
 ## CI
 
