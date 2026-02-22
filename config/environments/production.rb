@@ -4,7 +4,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Set secret_key_base from environment variable.
-  config.secret_key_base = ENV["SECRET_KEY_BASE"]
+  config.secret_key_base = ENV["SECRET_KEY_BASE"] if ENV["SECRET_KEY_BASE"]
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
