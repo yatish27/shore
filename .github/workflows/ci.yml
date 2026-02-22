@@ -5,9 +5,17 @@ on:
   push:
     branches: [ main ]
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+env:
+  BUN_VERSION: "1.3.6"
+
 jobs:
   scan_ruby:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout code
@@ -20,12 +28,23 @@ jobs:
 
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: bin/brakeman --no-pager
-      
+
+      - name: Cache bundler-audit DB
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/ruby-advisory-db
+          key: bundler-audit-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: bundler-audit-${{ runner.os }}-
+
+      - name: Update advisory DB
+        run: bundle exec bundler-audit update
+
       - name: Scan for known security vulnerabilities in gems used
         run: bin/bundler-audit
-      
+
   lint:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     env:
       RUBOCOP_CACHE_ROOT: tmp/rubocop
     steps:
@@ -50,40 +69,17 @@ jobs:
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
-  test:
+  typecheck:
     runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-        ports:
-          - 5432:5432
-        options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
-
-      # redis:
-      #   image: valkey/valkey:8
-      #   ports:
-      #     - 6379:6379
-      #   options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+    timeout-minutes: 10
 
     steps:
-      - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libpq-dev
-
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-
       - uses: oven-sh/setup-bun@v1
         with:
-          bun-version: 1.3.6
+          bun-version: ${{ env.BUN_VERSION }}
 
       - name: Cache Bun dependencies
         uses: actions/cache@v4
@@ -98,16 +94,12 @@ jobs:
       - name: Install frontend dependencies
         run: bun install --frozen-lockfile
 
-      - name: Run tests
-        env:
-          RAILS_ENV: test
-          POSTGRES_PASSWORD: postgres
-          # RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-          # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test
+      - name: TypeScript type check
+        run: bunx tsc --noEmit
 
-  system-test:
+  test:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
 
     services:
       postgres:
@@ -118,12 +110,6 @@ jobs:
         ports:
           - 5432:5432
         options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
-
-      # redis:
-      #   image: valkey/valkey:8
-      #   ports:
-      #     - 6379:6379
-      #   options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
       - name: Install packages
@@ -139,7 +125,7 @@ jobs:
 
       - uses: oven-sh/setup-bun@v1
         with:
-          bun-version: 1.3.6
+          bun-version: ${{ env.BUN_VERSION }}
 
       - name: Cache Bun dependencies
         uses: actions/cache@v4
@@ -157,13 +143,17 @@ jobs:
       - name: Precompile assets
         run: SECRET_KEY_BASE=dummy RAILS_ENV=production bin/rails assets:precompile
 
-      - name: Run System Tests
+      - name: Run tests
         env:
           RAILS_ENV: test
           POSTGRES_PASSWORD: postgres
-          # RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-          # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test:system
+        run: bin/rails db:test:prepare test
+
+      - name: Run system tests
+        env:
+          RAILS_ENV: test
+          POSTGRES_PASSWORD: postgres
+        run: bin/rails test:system
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
