@@ -66,4 +66,6 @@ jobs:
       - name: Deploy to Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: railway redeploy --service shore --yes
+        run: |
+          railway redeploy --service shore --yes
+          railway redeploy --service shore-worker --yes
