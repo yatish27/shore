@@ -1,8 +1,6 @@
-class HomeController < ApplicationController
-  layout "inertia"
-
+class HomeController < InertiaController
   def index
-    render inertia: "Home", props: {
+    render inertia: {
       versions: {
         ruby: RUBY_VERSION,
         rails: Rails.version,

@@ -1,23 +1,17 @@
-class PostsController < ApplicationController
-  layout "inertia"
-
+class PostsController < InertiaController
   def index
-    render inertia: "Posts/Index", props: {
-      posts: Post.order(created_at: :desc).map { |post|
-        serialize_post(post)
-      }
+    render inertia: {
+      posts: Post.order(created_at: :desc).as_json(only: %i[id title body created_at updated_at])
     }
   end
 
   def show
-    post = Post.find(params[:id])
-    render inertia: "Posts/Show", props: {
-      post: serialize_post(post)
+    render inertia: {
+      post: Post.find(params[:id]).as_json(only: %i[id title body created_at updated_at])
     }
   end
 
   def new
-    render inertia: "Posts/New"
   end
 
   def create
@@ -26,9 +20,7 @@ class PostsController < ApplicationController
     if post.save
       redirect_to post_path(post)
     else
-      render inertia: "Posts/New", props: {
-        errors: post.errors.messages
-      }, status: :unprocessable_content
+      redirect_to new_post_path, inertia: {errors: post.errors}
     end
   end
 
@@ -42,15 +34,5 @@ class PostsController < ApplicationController
 
   def post_params
     params.expect(post: [:title, :body])
-  end
-
-  def serialize_post(post)
-    {
-      id: post.id,
-      title: post.title,
-      body: post.body,
-      created_at: post.created_at.iso8601,
-      updated_at: post.updated_at.iso8601
-    }
   end
 end
