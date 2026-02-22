@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "bun bun.config.js",
-    "build:css": "bunx @tailwindcss/cli -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+    "build:css": "bunx @tailwindcss/cli -i ./app/frontend/entrypoints/application.css -o ./app/assets/builds/application.css --minify"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",

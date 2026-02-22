@@ -12,8 +12,8 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["app/javascript/*"]
+      "@/*": ["app/frontend/*"]
     }
   },
-  "include": ["app/javascript/**/*.ts", "app/javascript/**/*.tsx"]
+  "include": ["app/frontend/**/*.ts", "app/frontend/**/*.tsx"]
 }

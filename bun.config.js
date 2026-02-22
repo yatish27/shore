@@ -3,7 +3,7 @@ import fs from "fs";
 
 const config = {
   sourcemap: "external",
-  entrypoints: ["app/javascript/application.js", "app/javascript/inertia.tsx"],
+  entrypoints: ["app/frontend/entrypoints/application.ts", "app/frontend/entrypoints/inertia.tsx"],
   outdir: path.join(process.cwd(), "app/assets/builds"),
   format: "iife",
 };
@@ -29,7 +29,7 @@ const build = async (config) => {
 
   if (process.argv.includes("--watch")) {
     fs.watch(
-      path.join(process.cwd(), "app/javascript"),
+      path.join(process.cwd(), "app/frontend"),
       { recursive: true },
       (eventType, filename) => {
         console.log(`File changed: ${filename}. Rebuilding...`);

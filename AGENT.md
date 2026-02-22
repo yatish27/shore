@@ -65,8 +65,8 @@ All four are created/migrated together by `bin/rails db:prepare`. CI uses `POSTG
 ### Key Architectural Patterns
 
 - **Inertia.js Pattern:** Controllers render Inertia responses (`render inertia: "PageName", props: { ... }`) instead of JSON APIs or ERB views.
-- **Frontend Structure:** Pages in `app/javascript/pages/`, shared components in `app/javascript/components/`, utilities in `app/javascript/lib/`. Path alias `@/` maps to `app/javascript/`.
-- **Page Registry:** New Inertia pages must be added to the `pages` map in `app/javascript/inertia.tsx`.
+- **Frontend Structure:** Pages in `app/frontend/pages/`, shared components in `app/frontend/components/`, utilities in `app/frontend/lib/`. Path alias `@/` maps to `app/frontend/`.
+- **Page Registry:** New Inertia pages must be added to the `pages` map in `app/frontend/entrypoints/inertia.tsx`.
 - **No Redis:** Background jobs, caching, and WebSockets all use PostgreSQL via the Solid gems.
 - **Database Architecture**
   - PostgreSQL
@@ -80,11 +80,14 @@ All four are created/migrated together by `bin/rails db:prepare`. CI uses `POSTG
 app/
   controllers/           # Rails controllers (render Inertia pages)
   models/                # ActiveRecord models
-  javascript/
+  frontend/
+    entrypoints/         # Build entrypoints (application.ts, inertia.tsx, application.css)
     pages/               # Inertia page components (React TSX)
     components/          # Shared React components
     lib/                 # Frontend utilities
-    inertia.tsx          # Inertia entrypoint — page registry
+    hooks/               # React hooks
+    fonts/               # Static fonts (served by Propshaft)
+    images/              # Static images (served by Propshaft)
   views/                 # Rails layouts only (Inertia handles UI)
 test/
   models/                # Model unit tests
