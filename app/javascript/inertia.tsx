@@ -1,16 +1,16 @@
 import { createInertiaApp } from "@inertiajs/react";
 import { createRoot } from "react-dom/client";
 
-import Home from "@/pages/Home";
-import PostsIndex from "@/pages/Posts/Index";
-import PostsShow from "@/pages/Posts/Show";
-import PostsNew from "@/pages/Posts/New";
+import Home from "@/pages/home/index";
+import PostsIndex from "@/pages/posts/index";
+import PostsShow from "@/pages/posts/show";
+import PostsNew from "@/pages/posts/new";
 
 const pages: Record<string, React.ComponentType<never>> = {
-  Home,
-  "Posts/Index": PostsIndex,
-  "Posts/Show": PostsShow,
-  "Posts/New": PostsNew,
+  "home/index": Home,
+  "posts/index": PostsIndex,
+  "posts/show": PostsShow,
+  "posts/new": PostsNew,
 };
 
 createInertiaApp({

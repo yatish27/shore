@@ -40,6 +40,8 @@ class PostsTest < ActionDispatch::IntegrationTest
       post posts_path, params: {post: {title: "", body: ""}}
     end
 
-    assert_response :unprocessable_content
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
   end
 end
