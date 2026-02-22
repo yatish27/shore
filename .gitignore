@@ -43,3 +43,6 @@
 # Ignore key files for decrypting credentials and more.
 /config/credentials/*.key
 
+# Ignore local Claude settings and plans.
+/.claude/settings.local.json
+/plan.md

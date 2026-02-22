@@ -33,6 +33,6 @@ class PostsController < InertiaController
   private
 
   def post_params
-    params.expect(post: [:title, :body])
+    params.permit(:title, :body)
   end
 end
