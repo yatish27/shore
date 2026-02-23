@@ -6,7 +6,7 @@ class PostsTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_difference "Post.count", 1 do
-      post posts_path, params: {post: {title: "My New Post", body: "This is the post body."}}
+      post posts_path, params: {title: "My New Post", body: "This is the post body."}
     end
 
     assert_response :redirect
@@ -37,7 +37,7 @@ class PostsTest < ActionDispatch::IntegrationTest
 
   test "validation failure: blank params do not create post" do
     assert_no_difference "Post.count" do
-      post posts_path, params: {post: {title: "", body: ""}}
+      post posts_path, params: {title: "", body: ""}
     end
 
     assert_response :redirect
