@@ -9,8 +9,9 @@ brew bundle
 This installs:
 - **mise** - Version manager for Ruby
 - **PostgreSQL 18** - Database
-- **libvips** - Image processing (used by ActiveStorage)
+- **vips** - Image processing (used by ActiveStorage)
 - **Bun** - JavaScript runtime and package manager
+- **act** - Run GitHub Actions locally
 
 ## 2. Install Ruby via mise
 
@@ -46,4 +47,4 @@ This installs Ruby via mise, runs `bundle install`, `bun install`, and prepares 
 bin/dev
 ```
 
-This runs the Rails server, Bun JS bundler, Tailwind CSS watcher, and Solid Queue job runner via `Procfile.dev`.
+This runs the Vite dev server (port 3036), Rails server (port 3000), and Solid Queue job runner via `Procfile.dev`. Tailwind CSS is handled by the Vite plugin — no separate watcher needed.
