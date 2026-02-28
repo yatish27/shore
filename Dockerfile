@@ -52,7 +52,7 @@ RUN --mount=type=cache,id=bundle-cache,target=/usr/local/bundle/cache \
     bundle exec bootsnap precompile -j 1 --gemfile
 
 # Install node modules
-COPY package.json bun.lock* ./
+COPY package.json bun.lock* vite.config.ts ./
 RUN --mount=type=cache,id=bun-cache,target=/root/.bun/install/cache \
     bun install --frozen-lockfile
 
