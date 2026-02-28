@@ -18,7 +18,8 @@ Shore is a Ruby on Rails template with a modern stack to start your next project
 - **PostgreSQL** — [PostgreSQL 18](https://www.postgresql.org)
 - **React + Inertia.js** — [Inertia Rails](https://inertia-rails.dev)
 - **Tailwind CSS** — [Tailwind CSS v4](https://tailwindcss.com)
-- **Bun** — [Bun](https://bun.sh) for js package management and asset bundling
+- **Vite** — [Vite](https://vite.dev) for asset bundling via [vite_rails](https://vite-ruby.netlify.app)
+- **Bun** — [Bun](https://bun.sh) for JavaScript package management
 - **Solid Queue** — [Solid Queue](https://github.com/rails/solid_queue) for background jobs
 - **Solid Cache** — [Solid Cache](https://github.com/rails/solid_cache) for caching
 - **Solid Cable** — [Solid Cable](https://github.com/rails/solid_cable) for WebSockets
