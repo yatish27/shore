@@ -16,8 +16,10 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "inertia", defer: true %>
+    <%= vite_stylesheet_tag "application" %>
+    <%= vite_react_refresh_tag %>
+    <%= vite_client_tag %>
+    <%= vite_typescript_tag "inertia.tsx" %>
   </head>
 
   <body class="font-sans antialiased"><%= yield %></body>

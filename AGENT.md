@@ -12,7 +12,7 @@ Shore is a web application built with Rails 8.1 and React 19 via Inertia.js.
 
 ```
 bin/setup    # Install deps, prepare all databases
-bin/dev      # Starts Rails server (port 3000), Bun JS watcher, Tailwind CSS watcher, Solid Queue
+bin/dev      # Starts Vite dev server (port 3036), Rails server (port 3000), Solid Queue
 ```
 
 ### Database Commands
@@ -34,20 +34,15 @@ bin/dev      # Starts Rails server (port 3000), Bun JS watcher, Tailwind CSS wat
 - `bin/brakeman --no-pager` — Security analysis
 - `bin/bundler-audit` — Scan for vulnerable gems
 
-### Build Commands
-
-- `bun run build` — Build JavaScript
-- `bun run build:css` — Build CSS
-
 ## Architecture Overview
 
 ### Tech Stack
 
 - Rails 8.1 with PostgreSQL (multi-database)
 - Inertia.js 2 with React 19
-- Bun (JS bundling via `bun.config.js`)
-- Tailwind CSS 4
-- Propshaft (asset pipeline)
+- Vite (via `vite_rails` gem + `vite-plugin-ruby`)
+- Tailwind CSS 4 (via `@tailwindcss/vite` plugin)
+- Propshaft (static asset pipeline)
 - Solid Queue, Solid Cache, Solid Cable (no Redis)
 - Minitest + Fixtures + Capybara (testing)
 
@@ -66,7 +61,7 @@ All four are created/migrated together by `bin/rails db:prepare`. CI uses `POSTG
 
 - **Inertia.js Pattern:** Controllers render Inertia responses (`render inertia: "PageName", props: { ... }`) instead of JSON APIs or ERB views.
 - **Frontend Structure:** Pages in `app/frontend/pages/`, shared components in `app/frontend/components/`, utilities in `app/frontend/lib/`. Path alias `@/` maps to `app/frontend/`.
-- **Page Registry:** New Inertia pages must be added to the `pages` map in `app/frontend/entrypoints/inertia.tsx`.
+- **Page Auto-Discovery:** New Inertia pages are auto-discovered via `import.meta.glob` — just create a `.tsx` file in `app/frontend/pages/`.
 - **No Redis:** Background jobs, caching, and WebSockets all use PostgreSQL via the Solid gems.
 - **Database Architecture**
   - PostgreSQL
@@ -81,7 +76,7 @@ app/
   controllers/           # Rails controllers (render Inertia pages)
   models/                # ActiveRecord models
   frontend/
-    entrypoints/         # Build entrypoints (application.ts, inertia.tsx, application.css)
+    entrypoints/         # Vite entrypoints (inertia.tsx, application.css)
     pages/               # Inertia page components (React TSX)
     components/          # Shared React components
     lib/                 # Frontend utilities

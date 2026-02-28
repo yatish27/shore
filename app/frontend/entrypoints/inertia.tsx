@@ -1,27 +1,19 @@
-import { createInertiaApp } from "@inertiajs/react";
-import { createRoot } from "react-dom/client";
-
-import Home from "@/pages/home/index";
-import PostsIndex from "@/pages/posts/index";
-import PostsShow from "@/pages/posts/show";
-import PostsNew from "@/pages/posts/new";
-
-const pages: Record<string, React.ComponentType<never>> = {
-  "home/index": Home,
-  "posts/index": PostsIndex,
-  "posts/show": PostsShow,
-  "posts/new": PostsNew,
-};
+import { createInertiaApp } from "@inertiajs/react"
+import { createRoot } from "react-dom/client"
 
 createInertiaApp({
   resolve: (name) => {
-    const page = pages[name];
+    const pages = import.meta.glob("../pages/**/*.tsx", { eager: true })
+    const page = pages[`../pages/${name}.tsx`]
     if (!page) {
-      throw new Error(`Page not found: ${name}`);
+      throw new Error(
+        `Missing Inertia page component: '${name}.tsx'. ` +
+          `Resolved pages: ${Object.keys(pages).join(", ")}`,
+      )
     }
-    return page;
+    return page
   },
   setup({ el, App, props }) {
-    createRoot(el).render(<App {...props} />);
+    createRoot(el).render(<App {...props} />)
   },
-});
+})

@@ -3,9 +3,8 @@ source "https://rubygems.org"
 gem "rails", "~> 8.1.2"
 
 # Assets & front end
-gem "cssbundling-rails"
-gem "jsbundling-rails"
 gem "propshaft"
+gem "vite_rails", "~> 3.0"
 
 # Deployment and drivers
 gem "bootsnap", require: false
