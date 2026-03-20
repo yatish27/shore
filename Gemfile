@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem "rails", "~> 8.1.2"
 
 # Assets & front end
-gem "vite_rails", "~> 3.0"
+gem "vite_rails", "~> 3.10"
 
 # Deployment and drivers
 gem "bootsnap", require: false
