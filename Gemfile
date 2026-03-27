@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 8.1.2"
+gem "rails", "~> 8.1.3"
 
 # Assets & front end
 gem "vite_rails", "~> 3.0"
