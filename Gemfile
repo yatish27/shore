@@ -17,7 +17,7 @@ gem "thruster", require: false
 gem "tzinfo-data", platforms: %i[windows jruby]
 
 # Features
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 2.0"
 gem "inertia_rails"
 
 group :development, :test do
